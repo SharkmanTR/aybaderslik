@@ -1630,6 +1630,8 @@ export default function DiyetYaz({hocalar}){
             })
 
         });
+        const yan = await gon.json();
+        alert(yan["id"]+" numaralı diyetiniz başarıyla gönderilmiştir.")
         window.scrollTo(0,0);
     }
 
@@ -1841,6 +1843,8 @@ export default function DiyetYaz({hocalar}){
             })
 
         });
+        const yan = await gon.json();
+        alert(yan["id"]+ " numaralı diyetiniz staj defterinize kaydedilmiştir.");
         window.scrollTo(0,0);
     }
     function s1gc(){

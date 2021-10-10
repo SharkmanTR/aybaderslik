@@ -52,7 +52,7 @@ export default function GirisYap(ls){
         const lng=ls.map(l=>l.durum);
 
         if(lng=="1"){
-            const id = ls.map(l=>id);
+            const id = ls.map(l=>l.id);
             const ono =ls.map(l=>l.ono);
             const uni=ls.map(l=>l.uni);
             const sinif=ls.map(l=>l.sinif);

@@ -3081,7 +3081,7 @@ export function fhesapla(){
     document.getElementById("yuzp").innerText="%"+yuzp.toFixed(2).toString();
     document.getElementById("yuzy").innerText="%"+yuzy.toFixed(2).toString();
 }
-export async function getServerSideProps(){
+export async function getStaticProps(){
     const u = cookies.get("uni"||"");
     const prisma = new PrismaClient();
     const hocalar = await prisma.aybaUsers.findMany({

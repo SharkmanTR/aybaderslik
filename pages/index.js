@@ -47,7 +47,6 @@ export default function Home() {
       <Head>
         <title>AYBA Derslik</title>
       </Head>
-      {l=="1"&&d=="1"&&
       <div>
         <UstMenu
         pref={""}
@@ -65,12 +64,6 @@ export default function Home() {
 
         <Ingilizce ></Ingilizce>
       </div>
-      
-      }
-      {l=="0"&&
-      <GirisYap></GirisYap>
-      
-      }
       
     </div>
     

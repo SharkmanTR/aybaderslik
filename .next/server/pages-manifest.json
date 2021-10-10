@@ -2,5 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/DietsTalks": "pages/DietsTalks.js"
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/formuller": "pages/formuller.js",
+  "/girisyap": "pages/girisyap.js",
+  "/api/logincheck": "pages/api/logincheck.js",
+  "/": "pages/index.js"
 }

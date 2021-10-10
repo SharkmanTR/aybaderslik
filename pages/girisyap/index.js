@@ -17,8 +17,7 @@ export default function GirisYap(ls){
         }else if(ll=="0"){
 
         }else if(ll=="1"){
-            cookies.set("id",ls.map(ls=>ls.id));
-            alert(ls.map(l=>l.adsoyad));
+            window.location.href='/';
         }
     })
     return(
@@ -55,6 +54,7 @@ export default function GirisYap(ls){
             const sinif=ls.map(l=>l.sinif);
             const em=ls.map(l=>l.email);
             const sf=ls.map(l=>l.sifre);
+            const as = ls.map(l=>l.adsoyad);
             cookies.set("login","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});
@@ -62,6 +62,7 @@ export default function GirisYap(ls){
             cookies.set("sinif",sinif,{expires:24*90});
             cookies.set("uni",uni,{expires:24*90});
             cookies.set("ono",ono,{expires:24*90});
+            cookies.set("adsoyad",as,{expires:24*90});
             setl(ls.map(l=>l.durum));
         }
 

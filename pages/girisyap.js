@@ -29,6 +29,10 @@ export default function GirisYap(ls){
                     <button className={styles.btnlogin} onClick={btngirisclick}>
                         Giriş Yap
                     </button>
+                    <div className={styles.foot}>
+                        <a className={styles.a1} href='/uyeol'>Üye Ol</a>
+                        <a className={styles.a2}>Şifremi Unuttum</a>
+                    </div>
                 </div>
         </div>
     )

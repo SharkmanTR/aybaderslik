@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./aybadb.db"
+}
+
+model AybaUsers {
+  id      Int    @id @default(autoincrement())
+  email   String
+  sifre   String
+  adsoyad String
+  dtarihi String @default("")
+  tel String @default("")
+  tc      String
+  barkod  String
+  ono String @default("")
+  tema    String
+  paket   String
+  bitg    String
+  bita    String
+  bity    String
+  uni     String
+  sinif   String
+  durum   String
+  hoca    String
+  dyt     String
+  ehesap String @default("1")
+}
+
+model AybaDersDosyalari {
+  id    Int    @id @default(autoincrement())
+  uni   String
+  sinif String
+  ders  String
+  konu  String
+}
+
+model AybaDiyetler {
+  id      Int    @id @default(autoincrement())
+  adsoyad String
+  uni     String
+  hoca    String
+  dsut    String
+  dyysut  String
+  dyssut  String
+  det     String
+  dekm    String
+  dkbak   String
+  dseb    String
+  dmey    String
+  dyag    String
+  dytoh   String
+  ekcho   String
+  ekpro   String
+  ekyag   String
+  gcho    String
+  gpro    String
+  gyag    String
+  topkcal String
+  kcho    String
+  kpro    String
+  kyag    String
+  ycho    String
+  ypro    String
+  yyag    String
+  osabah  String
+  oara1   String
+  oogle   String
+  oara2   String
+  oaksam  String
+  oara3   String
+  fav     String
+  info String @default("")
+  gun String @default("")
+  ay String @default("")
+  yil String @default("")
+}
+model AybaDefter{
+  id Int @id @default(autoincrement())
+  adsoyad String
+  ono String
+  uni     String
+  dsut    String
+  dyysut  String
+  dyssut  String
+  det     String
+  dekm    String
+  dkbak   String
+  dseb    String
+  dmey    String
+  dyag    String
+  dytoh   String
+  ekcho   String
+  ekpro   String
+  ekyag   String
+  gcho    String
+  gpro    String
+  gyag    String
+  topkcal String
+  kcho    String
+  kpro    String
+  kyag    String
+  ycho    String
+  ypro    String
+  yyag    String
+  osabah  String
+  oara1   String
+  oogle   String
+  oara2   String
+  oaksam  String
+  oara3   String
+  vakaadi String
+  hastaliklar String
+  ilaclar String
+  bulgular String
+  servis String
+  info String
+  gun String
+  ay String
+  yil String
+}

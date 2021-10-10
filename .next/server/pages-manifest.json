@@ -1,0 +1,16 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/degisimlistesi": "pages/degisimlistesi.js",
+  "/girisyap/[xemail]/[xsifre]": "pages/girisyap/[xemail]/[xsifre].js",
+  "/": "pages/index.js",
+  "/DietsTalks": "pages/DietsTalks.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/girisyap": "pages/girisyap.js",
+  "/diyetyaz": "pages/diyetyaz.js",
+  "/ornekmenuler": "pages/ornekmenuler.js",
+  "/dersdosyalari/adu": "pages/dersdosyalari/adu.js",
+  "/stajdefterim": "pages/stajdefterim.js",
+  "/formuller": "pages/formuller.js"
+}

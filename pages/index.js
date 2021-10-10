@@ -1,10 +1,8 @@
 import Head from 'next/head';
 import UstMenu from '/components/ustmenu.js';
 import cookies from 'js-cookie';
-import GirisYap from '../pages/girisyap';
 import Ingilizce from '../components/ingilizce';
-import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -34,7 +32,11 @@ if(tema=="Default"){
 export default function Home() {
   const l = cookies.get('login'||"0");
   const d= cookies.get("durum");
-
+  useEffect(()=>{
+    if(l=="0"){
+      window.location.href='/girisyap';
+    }
+  })
 
   return(
 

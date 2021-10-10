@@ -2,6 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/dersdosyalari": "pages/dersdosyalari.js",
-  "/stajdefterim": "pages/stajdefterim.js"
+  "/": "pages/index.js",
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/girisyap": "pages/girisyap.js",
+  "/DietsTalks": "pages/DietsTalks.js",
+  "/api/logincheck": "pages/api/logincheck.js",
+  "/diyetyaz": "pages/diyetyaz.js"
 }

@@ -14,6 +14,16 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
+    "/DietsTalks": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/DietsTalks.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -24,15 +34,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/dersdosyalari": [
+    "/diyetyaz": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/dersdosyalari.js"
+      "static/chunks/pages/diyetyaz.js"
     ],
-    "/stajdefterim": [
+    "/girisyap": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/stajdefterim.js"
+      "static/chunks/pages/girisyap.js"
+    ],
+    "/next/dist/pages/_error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/next/dist/pages/_error.js"
     ]
   },
   "ampFirstPages": []

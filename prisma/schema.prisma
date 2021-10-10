@@ -1,22 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
 generator client {
   provider = "prisma-client-js"
 }
-
-datasource db {
-  provider = "sqlite"
-  url      = "file:./aybadb.db"
-}
-
 model AybaUsers {
   id      Int    @id @default(autoincrement())
   email   String
   sifre   String
   adsoyad String
-  dtarihi String @default("")
-  tel String @default("")
+  dtarihi String 
+  tel String 
   tc      String
   barkod  String
-  ono String @default("")
+  ono String 
   tema    String
   paket   String
   bitg    String
@@ -27,7 +30,7 @@ model AybaUsers {
   durum   String
   hoca    String
   dyt     String
-  ehesap String @default("1")
+  ehesap String 
 }
 
 model AybaDersDosyalari {
@@ -73,10 +76,10 @@ model AybaDiyetler {
   oaksam  String
   oara3   String
   fav     String
-  info String @default("")
-  gun String @default("")
-  ay String @default("")
-  yil String @default("")
+  info String 
+  gun String 
+  ay String 
+  yil String 
 }
 model AybaDefter{
   id Int @id @default(autoincrement())

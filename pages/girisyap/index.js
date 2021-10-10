@@ -1,26 +1,28 @@
 import cookies from 'js-cookie'
 import styles from '/components/Default/login.module.css'
-import LoginG from '../../components/logincomp/login1.js'
-import LoginY from '../../components/logincomp/login2.js'
-import {PrismaClient} from '@prisma/client'
+import { useEffect, useState } from 'react';
 
 var md5 = require('md5');
 
 
 
-export default function GirisYap(){
+export default function GirisYap(ls){
     const l = cookies.get('login');
     const d =cookies.get('durum');
+    const [ll,setl]=useState("x");
+    useEffect(()=>{
+        
+        if(ll=="x"){
+
+        }else if(ll=="0"){
+
+        }else if(ll=="1"){
+            window.location.href='/'
+        }
+    })
     return(
+        
         <div>
-            {l=="1" && d=="1" &&
-            <LoginG></LoginG>
-            
-            }
-            {l=="1" && d=="0"&&
-                <LoginY></LoginY>
-            }
-            {l=="0"&&
                 <div className={styles.login}>
                     <input id="txtemail" type="email" placeholder="E-posta:" className={styles.inputlgn} />
                     <input id="txtsifre" type="password" placeholder="Şifre:" className={styles.inputlgn} />
@@ -28,18 +30,46 @@ export default function GirisYap(){
                         Giriş Yap
                     </button>
                 </div>
-            
-            }
-
         </div>
     )
+    async function btngirisclick(){
+        let e = document.getElementById("txtemail").value;
+        let s =document.getElementById("txtsifre").value;
+        s=md5(s);
+        const log = await fetch('./api/logincheck',{
+            method:'POST',
+            header:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                uemil:e,
+                upass:s
+            })
+        });
+        const ls = await log.json();
+        const lng=ls.map(l=>l.durum);
+
+        if(lng=="1"){
+            const id = ls.map(l=>id);
+            const ono =ls.map(l=>l.ono);
+            const uni=ls.map(l=>l.uni);
+            const sinif=ls.map(l=>l.sinif);
+            const em=ls.map(l=>l.email);
+            const sf=ls.map(l=>l.sifre);
+            cookies.set("login","1",{expires:24*90});
+            cookies.set("id",id,{expires:24*90});
+            cookies.set("email",em,{expires:24*90});
+            cookies.set("pass",sf,{expires:24*90});
+            cookies.set("sinif",sinif,{expires:24*90});
+            cookies.set("uni",uni,{expires:24*90});
+            cookies.set("ono",ono,{expires:24*90});
+            setl(ls.map(l=>l.durum));
+        }
+
+        return{
+            props:{ls}
+        }
+    }
 
 }
 
-export function btngirisclick(){
-    let e = document.getElementById("txtemail").value;
-    let s =document.getElementById("txtsifre").value;
-    s=md5(s);
-    window.location.href='/girisyap/'+e+"/"+s;
-}
+
 

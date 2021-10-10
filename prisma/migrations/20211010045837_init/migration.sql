@@ -1,0 +1,141 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- CreateTable
+CREATE TABLE [dbo].[AybaUsers] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [email] NVARCHAR(1000) NOT NULL,
+    [sifre] NVARCHAR(1000) NOT NULL,
+    [adsoyad] NVARCHAR(1000) NOT NULL,
+    [dtarihi] NVARCHAR(1000) NOT NULL,
+    [tel] NVARCHAR(1000) NOT NULL,
+    [tc] NVARCHAR(1000) NOT NULL,
+    [barkod] NVARCHAR(1000) NOT NULL,
+    [ono] NVARCHAR(1000) NOT NULL,
+    [tema] NVARCHAR(1000) NOT NULL,
+    [paket] NVARCHAR(1000) NOT NULL,
+    [bitg] NVARCHAR(1000) NOT NULL,
+    [bita] NVARCHAR(1000) NOT NULL,
+    [bity] NVARCHAR(1000) NOT NULL,
+    [uni] NVARCHAR(1000) NOT NULL,
+    [sinif] NVARCHAR(1000) NOT NULL,
+    [durum] NVARCHAR(1000) NOT NULL,
+    [hoca] NVARCHAR(1000) NOT NULL,
+    [dyt] NVARCHAR(1000) NOT NULL,
+    [ehesap] NVARCHAR(1000) NOT NULL,
+    CONSTRAINT [AybaUsers_pkey] PRIMARY KEY ([id])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[AybaDersDosyalari] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [uni] NVARCHAR(1000) NOT NULL,
+    [sinif] NVARCHAR(1000) NOT NULL,
+    [ders] NVARCHAR(1000) NOT NULL,
+    [konu] NVARCHAR(1000) NOT NULL,
+    CONSTRAINT [AybaDersDosyalari_pkey] PRIMARY KEY ([id])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[AybaDiyetler] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [adsoyad] NVARCHAR(1000) NOT NULL,
+    [uni] NVARCHAR(1000) NOT NULL,
+    [hoca] NVARCHAR(1000) NOT NULL,
+    [dsut] NVARCHAR(1000) NOT NULL,
+    [dyysut] NVARCHAR(1000) NOT NULL,
+    [dyssut] NVARCHAR(1000) NOT NULL,
+    [det] NVARCHAR(1000) NOT NULL,
+    [dekm] NVARCHAR(1000) NOT NULL,
+    [dkbak] NVARCHAR(1000) NOT NULL,
+    [dseb] NVARCHAR(1000) NOT NULL,
+    [dmey] NVARCHAR(1000) NOT NULL,
+    [dyag] NVARCHAR(1000) NOT NULL,
+    [dytoh] NVARCHAR(1000) NOT NULL,
+    [ekcho] NVARCHAR(1000) NOT NULL,
+    [ekpro] NVARCHAR(1000) NOT NULL,
+    [ekyag] NVARCHAR(1000) NOT NULL,
+    [gcho] NVARCHAR(1000) NOT NULL,
+    [gpro] NVARCHAR(1000) NOT NULL,
+    [gyag] NVARCHAR(1000) NOT NULL,
+    [topkcal] NVARCHAR(1000) NOT NULL,
+    [kcho] NVARCHAR(1000) NOT NULL,
+    [kpro] NVARCHAR(1000) NOT NULL,
+    [kyag] NVARCHAR(1000) NOT NULL,
+    [ycho] NVARCHAR(1000) NOT NULL,
+    [ypro] NVARCHAR(1000) NOT NULL,
+    [yyag] NVARCHAR(1000) NOT NULL,
+    [osabah] NVARCHAR(1000) NOT NULL,
+    [oara1] NVARCHAR(1000) NOT NULL,
+    [oogle] NVARCHAR(1000) NOT NULL,
+    [oara2] NVARCHAR(1000) NOT NULL,
+    [oaksam] NVARCHAR(1000) NOT NULL,
+    [oara3] NVARCHAR(1000) NOT NULL,
+    [fav] NVARCHAR(1000) NOT NULL,
+    [info] NVARCHAR(1000) NOT NULL,
+    [gun] NVARCHAR(1000) NOT NULL,
+    [ay] NVARCHAR(1000) NOT NULL,
+    [yil] NVARCHAR(1000) NOT NULL,
+    CONSTRAINT [AybaDiyetler_pkey] PRIMARY KEY ([id])
+);
+
+-- CreateTable
+CREATE TABLE [dbo].[AybaDefter] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [adsoyad] NVARCHAR(1000) NOT NULL,
+    [ono] NVARCHAR(1000) NOT NULL,
+    [uni] NVARCHAR(1000) NOT NULL,
+    [dsut] NVARCHAR(1000) NOT NULL,
+    [dyysut] NVARCHAR(1000) NOT NULL,
+    [dyssut] NVARCHAR(1000) NOT NULL,
+    [det] NVARCHAR(1000) NOT NULL,
+    [dekm] NVARCHAR(1000) NOT NULL,
+    [dkbak] NVARCHAR(1000) NOT NULL,
+    [dseb] NVARCHAR(1000) NOT NULL,
+    [dmey] NVARCHAR(1000) NOT NULL,
+    [dyag] NVARCHAR(1000) NOT NULL,
+    [dytoh] NVARCHAR(1000) NOT NULL,
+    [ekcho] NVARCHAR(1000) NOT NULL,
+    [ekpro] NVARCHAR(1000) NOT NULL,
+    [ekyag] NVARCHAR(1000) NOT NULL,
+    [gcho] NVARCHAR(1000) NOT NULL,
+    [gpro] NVARCHAR(1000) NOT NULL,
+    [gyag] NVARCHAR(1000) NOT NULL,
+    [topkcal] NVARCHAR(1000) NOT NULL,
+    [kcho] NVARCHAR(1000) NOT NULL,
+    [kpro] NVARCHAR(1000) NOT NULL,
+    [kyag] NVARCHAR(1000) NOT NULL,
+    [ycho] NVARCHAR(1000) NOT NULL,
+    [ypro] NVARCHAR(1000) NOT NULL,
+    [yyag] NVARCHAR(1000) NOT NULL,
+    [osabah] NVARCHAR(1000) NOT NULL,
+    [oara1] NVARCHAR(1000) NOT NULL,
+    [oogle] NVARCHAR(1000) NOT NULL,
+    [oara2] NVARCHAR(1000) NOT NULL,
+    [oaksam] NVARCHAR(1000) NOT NULL,
+    [oara3] NVARCHAR(1000) NOT NULL,
+    [vakaadi] NVARCHAR(1000) NOT NULL,
+    [hastaliklar] NVARCHAR(1000) NOT NULL,
+    [ilaclar] NVARCHAR(1000) NOT NULL,
+    [bulgular] NVARCHAR(1000) NOT NULL,
+    [servis] NVARCHAR(1000) NOT NULL,
+    [info] NVARCHAR(1000) NOT NULL,
+    [gun] NVARCHAR(1000) NOT NULL,
+    [ay] NVARCHAR(1000) NOT NULL,
+    [yil] NVARCHAR(1000) NOT NULL,
+    CONSTRAINT [AybaDefter_pkey] PRIMARY KEY ([id])
+);
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH

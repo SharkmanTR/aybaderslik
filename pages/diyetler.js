@@ -62,7 +62,7 @@ export default function Diyetler({dyt}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-    })
+    },[])
     return(
         <div className={t.main}>
             <style jsx global>
@@ -292,7 +292,7 @@ export default function Diyetler({dyt}){
         </div>
     );
 }
-export async function getServerSideProps(){
+export async function getStaticProps(){
     const prisma = new PrismaClient();
     const dyt = await prisma.aybaDiyetler.findMany({
         orderBy:{id:'desc'},

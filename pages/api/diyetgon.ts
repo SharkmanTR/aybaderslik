@@ -82,9 +82,7 @@ export default async function(req: NextApiRequest,res: NextApiResponse){
         const dyt= await prisma.aybaDiyetler.create({
             data:dytdata,
         });
-        res.setHeader('Content-Type','application/json');
-        res.statusCode=200;
-        res.end(JSON.stringify({message:'Başarılı',dytdata}));
+        res.json(dyt);
         
     return{
         props:{

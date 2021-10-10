@@ -29,11 +29,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/formuller": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/formuller.js"
-    ],
     "/girisyap": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

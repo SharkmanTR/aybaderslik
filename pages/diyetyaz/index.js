@@ -1630,8 +1630,6 @@ export default function DiyetYaz({hocalar}){
             })
 
         });
-        const res = await gon.json();
-        alert(res.map(r=>r.id)+" numaralı diyetiniz sisteme yüklenmiştir.");
         window.scrollTo(0,0);
     }
 

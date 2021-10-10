@@ -1428,7 +1428,7 @@ export default function DiyetYaz({hocalar}){
 
         </div>
     )
-    async function btngonderc(req,res){
+    async function btngonderc(){
         const sutd=document.getElementById("inputsut").value;
         const yysutd=document.getElementById("inputyysut").value;
         const yssutd=document.getElementById("inputyssut").value;
@@ -1631,7 +1631,7 @@ export default function DiyetYaz({hocalar}){
 
         });
         const res = await gon.json();
-        alert(res.map(r=>r.id));
+        console.log(res);
         window.scrollTo(0,0);
     }
 

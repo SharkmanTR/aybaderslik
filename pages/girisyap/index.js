@@ -17,7 +17,8 @@ export default function GirisYap(ls){
         }else if(ll=="0"){
 
         }else if(ll=="1"){
-            window.location.href='/'
+            cookies.set("id",ls.map(ls=>ls.id));
+            alert(ls.map(l=>l.adsoyad));
         }
     })
     return(

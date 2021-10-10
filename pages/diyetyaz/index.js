@@ -80,7 +80,7 @@ export default function DiyetYaz({hocalar}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-    })
+    },[])
     return(
         <div>
             <UstMenu

@@ -225,6 +225,7 @@ export default function UstMenu({pref}){
         }else{
             document.getElementById("menu").style.display="none";
         }
+        document.getElementById("menutema").style.display='none';
     }
     function temaclick(){
         if(document.getElementById("menutema").style.display==='none'){
@@ -232,10 +233,10 @@ export default function UstMenu({pref}){
         }else{
             document.getElementById("menutema").style.display='none';
         }
+        document.getElementById("menu").style.display="none";
     }
     function fdersdosyalari(){
-        const x=cookies.get('uni');
-        window.location.href='/dersdosyalari/'+x;
+        window.location.href='/dersdosyalari';
     }
     function btncikisclick(){
         cookies.set("login","0",{expires:24*90});

@@ -77,7 +77,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
             `}
             </style>
             <UstMenu
-            pref={"dersdosyalari/adu"}></UstMenu>
+            pref={"dersdosyalari"}></UstMenu>
             <div>
                 {s>="4" &&
                 <div className={t.main} >
@@ -89,7 +89,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                             <div className={t.sunum}>
                                 {konular4.map(k4=>(
                                     <div key={k4.id} id={k4.id}>
-                                        <a className={t.h2} href={"../../../dersdosyalari/"+k4.uni+"/"+k4.sinif+"/"+k4.ders+"/"+k4.id+".pdf"} download>{k4.konu}</a>
+                                        <a className={t.h2} href={"http://aybaderslik.com/dersdosyalariftp/"+k4.uni+"/"+k4.sinif+"/"+k4.ders+"/"+k4.id+".pdf"} download>{k4.konu}</a>
                                         
                                         <p className={t.h3}>{k4.ders}</p>
                                         <hr></hr>

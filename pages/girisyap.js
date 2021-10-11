@@ -68,6 +68,10 @@ export default function GirisYap(ls){
             cookies.set("ono",ono,{expires:24*90});
             cookies.set("adsoyad",as,{expires:24*90});
             setl(ls.map(l=>l.durum));
+        }else if(lng=="0"){
+            alert("Hesabınız henüz onaylanmadı. Bu onaylanma süreci en fazla 24 saat sürmektedir.");
+        }else{
+            alert("Giriş başarısız.")
         }
 
         return{

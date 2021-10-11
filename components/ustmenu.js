@@ -40,6 +40,12 @@ export default function UstMenu({pref}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
+    });
+    const [lk,setlk]=useState("");
+    useEffect(()=>{
+        if(lk!=""){
+            window.location.href=lk;
+        }
     })
 
     return(
@@ -244,7 +250,7 @@ export default function UstMenu({pref}){
         document.getElementById("menu").style.display="none";
     }
     function fanasayfa() {
-        window.location.href("/");
+        setlk("/");
     }
     function fdersdosyalari(){
         window.location.href='/dersdosyalari';

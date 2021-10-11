@@ -30,7 +30,7 @@ export default function GirisYap(ls){
                         Giriş Yap
                     </button>
                     <div className={styles.foot}>
-                        <p className={styles.a1} onClick={uyolc}>Üye Ol</p>
+                        <p className={styles.a1} onClick={uyeolc}>Üye Ol</p>
                         <p className={styles.a2}>Şifremi Unuttum</p>
                     </div>
                 </div>

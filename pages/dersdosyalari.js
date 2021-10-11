@@ -110,7 +110,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                             <div className={t.sunum}>
                                 {konular3.map(k3=>(
                                     <div key={k3.id} id={k3.id}>
-                                        <a  className={t.h2} href={"../../../dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download>{k3.konu}</a>
+                                        <a  className={t.h2} href={"http://aybaderslik.com/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download>{k3.konu}</a>
                                         <p  className={t.h3}>{k3.ders}</p>
                                         <hr></hr>
                                     </div>

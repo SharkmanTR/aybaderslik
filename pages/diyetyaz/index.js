@@ -15,6 +15,7 @@ import DiyetGonder from '../diyetgon';
 import { useState, useEffect } from 'react';
 
 var tema = cookies.get("tema"||"Default");
+var hh=cookies.get("hoca"||"0");
 let tc;
 if(tema=="Default"){
 tc="#dadada";
@@ -111,6 +112,11 @@ export default function DiyetYaz({hocalar}){
                 qytoh={xytoh}></DiyetGonder>
                 }
             </div>
+            {hh=="1" &&
+            <div>
+                <button className={t.btn} style={{width:'100%'}}>Öğrencilerin Diyetleri</button>
+            </div>
+            }
 
             <div className={t.main}>
                 <div className={t.divhesap}>

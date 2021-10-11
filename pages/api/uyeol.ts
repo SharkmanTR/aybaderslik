@@ -5,7 +5,7 @@ export default async function uyeol (req:NextApiRequest, res:NextApiResponse) {
 
     if(req.method=="POST"){
         const prisma = new PrismaClient();
-        let userdata : Prisma.AybaUsersCreateInput
+        let userdata : Prisma.AybaUsersCreateInput;
         const {
             email1,
             sifre1,

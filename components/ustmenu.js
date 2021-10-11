@@ -47,9 +47,17 @@ export default function UstMenu({pref}){
         <div className={t.ustmenu}>
 
             <img className={t.mainmenu} onClick={aybaclick} src='/icons/menu.png'/>
-            <div id="menu" className={t.menu} style={{display:"none"}}>
+            <div id="menu" className={t.menu} style={{display:"none",paddingRight:'10px'}}>
                 <div className={t.menuitem}>
-                    <Image src="/icons/diyetyaz.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/home.png" width={'32px'} height={'32px'} alt="" onClick={fanasayfa}>
+
+                    </Image>
+                    <button className={t.menubtn} onClick={fanasayfa}>
+                        Ayba Derslik
+                    </button>
+                </div>
+                <div className={t.menuitem}>
+                    <Image src="/icons/diyetyaz.png" width={'32px'} height={'32px'} alt="" onClick={fdiyetyaz}>
 
                     </Image>
                     <button className={t.menubtn} onClick={fdiyetyaz} >
@@ -57,11 +65,11 @@ export default function UstMenu({pref}){
                     </button>
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/fav0.png" width={'32px'} height={'32px'}></Image>
+                    <Image src="/icons/fav0.png" width={'32px'} height={'32px'} alt="" onClick={fornek}></Image>
                     <button className={t.menubtn} onClick={fornek}>Örnek Menüler</button>
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/dersdosyalari.png" width={'32px'} height={'32px'} onClick={fdersdosyalari}>
+                    <Image src="/icons/dersdosyalari.png" width={'32px'} height={'32px'} onClick={fdersdosyalari} alt="">
                     
                     </Image>
                     <button className={t.menubtn} onClick={fdersdosyalari}>
@@ -69,14 +77,14 @@ export default function UstMenu({pref}){
                     </button>
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/stajdefteri.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/stajdefteri.png" width={'32px'} height={'32px'} alt="" onClick={fstajdefteri}>
 
                     </Image>
                     <button className={t.menubtn} onClick={fstajdefteri}>Staj Defterim</button>
                 </div>
 
                 <div className={t.menuitem}>
-                    <Image src="/icons/degisim.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/degisim.png" width={'32px'} height={'32px'} alt="" onClick={fdegisimlistesi}>
                     
                     </Image>
                     <button className={t.menubtn} onClick={fdegisimlistesi}>
@@ -84,7 +92,7 @@ export default function UstMenu({pref}){
                     </button >
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/formuller.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/formuller.png" width={'32px'} height={'32px'} alt="" onClick={fformuller}>
                     
                     </Image>
                     <button className={t.menubtn} onClick={fformuller}>
@@ -92,7 +100,7 @@ export default function UstMenu({pref}){
                     </button >
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/devamsizlik.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/devamsizlik.png" width={'32px'} height={'32px'} alt="">
                     
                     </Image>
                     <button className={t.menubtn}>
@@ -100,7 +108,7 @@ export default function UstMenu({pref}){
                     </button >
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/iletisim.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/iletisim.png" width={'32px'} height={'32px'} alt="">
                     
                     </Image>
                     <button className={t.menubtn}>
@@ -108,7 +116,7 @@ export default function UstMenu({pref}){
                     </button >
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/hakkimizda.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/hakkimizda.png" width={'32px'} height={'32px'} alt="">
                     
                     </Image>
                     <button className={t.menubtn}>
@@ -117,7 +125,7 @@ export default function UstMenu({pref}){
                 </div>
                 <hr style={{borderColor:'darkgray',borderWidth:'1px'}}></hr>
                 <div className={t.menuitem}>
-                    <Image src="/icons/profil.png" width={'32px'} height={'32px'}>
+                    <Image src="/icons/profil.png" width={'32px'} height={'32px'} alt="">
                     
                     </Image>
                     <button className={t.menubtn}>
@@ -125,7 +133,7 @@ export default function UstMenu({pref}){
                     </button >
                 </div>
                 <div className={t.menuitem}>
-                    <Image src="/icons/cikis.png" width={'32px'} height={'32px'} onClick={btncikisclick}>
+                    <Image src="/icons/cikis.png" width={'32px'} height={'32px'} onClick={btncikisclick} alt="">
                     
                     </Image>
                     <button className={t.menubtn} onClick={btncikisclick}>
@@ -234,6 +242,9 @@ export default function UstMenu({pref}){
             document.getElementById("menutema").style.display='none';
         }
         document.getElementById("menu").style.display="none";
+    }
+    function fanasayfa() {
+        window.location.href("/");
     }
     function fdersdosyalari(){
         window.location.href='/dersdosyalari';

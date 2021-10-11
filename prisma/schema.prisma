@@ -12,7 +12,7 @@ generator client {
 }
 model AybaUsers {
   id      Int    @id @default(autoincrement())
-  email   String
+  email   String @unique
   sifre   String
   adsoyad String
   dtarihi String 

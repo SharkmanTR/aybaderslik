@@ -44,21 +44,21 @@ export default function GirisYap(ls){
             method:'POST',
             header:{'Content-Type':'application/json'},
             body:JSON.stringify({
-                uemil:e,
+                uemail:e,
                 upass:s
             })
         });
-        const ls = await log.json();
-        const lng=ls.map(l=>l.durum);
-
+        const res = await log.json();
+        let lng=res["durum"];
         if(lng=="1"){
-            const id = ls.map(l=>l.id);
-            const ono =ls.map(l=>l.ono);
-            const uni=ls.map(l=>l.uni);
-            const sinif=ls.map(l=>l.sinif);
-            const em=ls.map(l=>l.email);
-            const sf=ls.map(l=>l.sifre);
-            const as = ls.map(l=>l.adsoyad);
+            const id = res["id"];
+            const ono =res["ono"];
+            const uni=res["uni"];
+            const sinif=res["sinif"];
+            const em=res["email"];
+            const sf=res["sifre"];
+            const as = res["adsoyad"];
+            const hh = res["hoca"];
             cookies.set("login","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});
@@ -67,11 +67,13 @@ export default function GirisYap(ls){
             cookies.set("uni",uni,{expires:24*90});
             cookies.set("ono",ono,{expires:24*90});
             cookies.set("adsoyad",as,{expires:24*90});
-            setl(ls.map(l=>l.durum));
+            cookies.set("hoca",hh,{expires:24*90});
+            setl(lng);
+
         }else if(lng=="0"){
             alert("Hesabınız henüz onaylanmadı. Bu onaylanma süreci en fazla 24 saat sürmektedir.");
         }else{
-            alert("Giriş başarısız.")
+            alert("Giriş başarısız.");
         }
 
         return{

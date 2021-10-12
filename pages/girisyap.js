@@ -64,6 +64,7 @@ export default function GirisYap(ls){
             const sf=res["sifre"];
             const as = res["adsoyad"];
             const hh = res["hoca"];
+            const dd=res["durum"];
             cookies.set("login","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});
@@ -73,6 +74,7 @@ export default function GirisYap(ls){
             cookies.set("ono",ono,{expires:24*90});
             cookies.set("adsoyad",as,{expires:24*90});
             cookies.set("hoca",hh,{expires:24*90});
+            cookies.set("durum",dd,{expires:24*90});
             setl(lng);
 
         }else if(lng=="0"){

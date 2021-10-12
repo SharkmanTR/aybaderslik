@@ -2,6 +2,7 @@ import cookies from 'js-cookie'
 import styles from '../components/Default/login.module.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { PrismaClient } from '@prisma/client';
 
 var md5 = require('md5');
 
@@ -29,8 +30,8 @@ export default function GirisYap(ls){
                     <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
                 </Head>
                 <div className={styles.login}>
-                    <input id="txtemail" type="email" placeholder="E-posta:" className={styles.inputlgn} />
-                    <input id="txtsifre" type="password" placeholder="Şifre:" className={styles.inputlgn} />
+                    <input id="txtemail" type="text" className={styles.inputlgn} />
+                    <input id="txtsifre" type="password"  className={styles.inputlgn} />
                     <button className={styles.btnlogin} onClick={btngirisclick}>
                         Giriş Yap
                     </button>
@@ -42,29 +43,29 @@ export default function GirisYap(ls){
         </div>
     )
     async function btngirisclick(){
-        let e = document.getElementById("txtemail").value;
-        let s =document.getElementById("txtsifre").value;
-        s=md5(s);
+        var e = document.getElementById("txtemail").value;
+        var s =md5(document.getElementById("txtsifre").value);
+
         const log = await fetch('./api/logincheck',{
             method:'POST',
-            header:{'Content-Type':'application/json'},
+            headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
                 uemail:e,
                 upass:s
             })
         });
         const res = await log.json();
-        let lng=res["durum"];
+        let lng=res.map(r=>r.durum);
         if(lng=="1"){
-            const id = res["id"];
-            const ono =res["ono"];
-            const uni=res["uni"];
-            const sinif=res["sinif"];
-            const em=res["email"];
-            const sf=res["sifre"];
-            const as = res["adsoyad"];
-            const hh = res["hoca"];
-            const dd=res["durum"];
+            const id = res.map(r=>r.id);
+            const ono =res.map(r=>r.ono);
+            const uni=res.map(r=>r.uni);
+            const sinif=res.map(r=>r.sinif);
+            const em=res.map(r=>r.email);
+            const sf=res.map(r=>r.sifre);
+            const as = res.map(r=>r.adsoyad);
+            const hh = res.map(r=>r.hoca);
+            const dd=res.map(r=>r.durum);
             cookies.set("login","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});

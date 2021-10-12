@@ -3,5 +3,10 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/degisimlistesi": "pages/degisimlistesi.js"
+  "/api/logincheck": "pages/api/logincheck.js",
+  "/diyetyaz": "pages/diyetyaz.js",
+  "/girisyap": "pages/girisyap.js",
+  "/api/diyetgon": "pages/api/diyetgon.js",
+  "/diyetler": "pages/diyetler.js",
+  "/ornekmenuler": "pages/ornekmenuler.js"
 }

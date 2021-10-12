@@ -11,6 +11,7 @@ import stylesDay from '../components/Day/dergi.module.css';
 import UstMenu from '../components/ustmenu';
 import cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
 let tc;
@@ -64,6 +65,10 @@ export default function DiyetsTalks() {
     },[])
     return(
         <div>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
             {`
             body{background-color: ${tc} ;}

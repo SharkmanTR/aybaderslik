@@ -11,6 +11,7 @@ import stylesDay from '../components/Day/degisimlistesi.module.css';
 import UstMenu from '../components/ustmenu';
 import Image from 'next/image';
 import cookies from 'js-cookie';
+import Head from 'next/head'
 import { useEffect, useState } from 'react';
 
 var tema = cookies.get("tema"||"Default");
@@ -64,6 +65,10 @@ export default function DegisimListesi(){
     })
     return(
         <div className={t.main}>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
             {`
             body{background-color: ${tc} ;}

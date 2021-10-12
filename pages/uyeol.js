@@ -3,6 +3,7 @@ import styles from '../components/Default/uyeol.module.css';
 import Image from 'next/image';
 import brkd from '../public/img/barkod.png';
 import { useEffect } from "react";
+import Head from 'next/head';
 
 
 var md5 = require('md5');
@@ -10,6 +11,10 @@ var md5 = require('md5');
 export default function UyeOl() {
     return(
         <div className={styles.main}>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
+            </Head>
             <style jsx global>
             {`
             body{background-color: #ddd ;}

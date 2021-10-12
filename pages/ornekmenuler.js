@@ -12,6 +12,7 @@ import stylesNight from '../components/Night/diyetler.module.css';
 import stylesDay from '../components/Day/diyetler.module.css';
 import {PrismaClient} from '@prisma/client';
 import { useState, useEffect } from "react";
+import Head from 'next/head';
 
 
 var tema = cookies.get("tema"||"Default");
@@ -65,6 +66,10 @@ export default function OrnekMenuler({dyt}){
     })
     return(
         <div className={t.main}>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
                 {`
                 body{background-color: ${tc} ;}

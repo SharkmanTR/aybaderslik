@@ -94,7 +94,7 @@ export default function UstMenu({pref}){
                     
                     </Image>
                     <button className={t.menubtn} onClick={fdegisimlistesi}>
-                        Değişim Listesi
+                        Değişimler
                     </button >
                 </div>
                 <div className={t.menuitem}>
@@ -111,22 +111,6 @@ export default function UstMenu({pref}){
                     </Image>
                     <button className={t.menubtn}>
                         Devamsızlık
-                    </button >
-                </div>
-                <div className={t.menuitem}>
-                    <Image src="/icons/iletisim.png" width={'32px'} height={'32px'} alt="">
-                    
-                    </Image>
-                    <button className={t.menubtn}>
-                        İletişim
-                    </button >
-                </div>
-                <div className={t.menuitem}>
-                    <Image src="/icons/hakkimizda.png" width={'32px'} height={'32px'} alt="">
-                    
-                    </Image>
-                    <button className={t.menubtn}>
-                        Hakkımızda
                     </button >
                 </div>
                 <hr style={{borderColor:'darkgray',borderWidth:'1px'}}></hr>
@@ -187,7 +171,7 @@ export default function UstMenu({pref}){
 
                     </div>
                     <button className={t.temabtn}>
-                        Visterya Moru
+                        Visterya
                     </button >
                 </div>
                 <div className={t.menuitem} onClick={tdarkwisteriac}>
@@ -195,7 +179,7 @@ export default function UstMenu({pref}){
 
                     </div>
                     <button className={t.temabtn}>
-                        Koyu Visterya Moru
+                        Koyu Visterya
                     </button >
                 </div>
                 <div className={t.menuitem} onClick={tnarc}>

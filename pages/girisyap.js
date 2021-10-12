@@ -1,6 +1,7 @@
 import cookies from 'js-cookie'
 import styles from '../components/Default/login.module.css';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 var md5 = require('md5');
 
@@ -23,6 +24,10 @@ export default function GirisYap(ls){
     return(
         
         <div>
+                <Head>
+                    <title>AYBA Derslik</title>
+                    <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
+                </Head>
                 <div className={styles.login}>
                     <input id="txtemail" type="email" placeholder="E-posta:" className={styles.inputlgn} />
                     <input id="txtsifre" type="password" placeholder="Şifre:" className={styles.inputlgn} />

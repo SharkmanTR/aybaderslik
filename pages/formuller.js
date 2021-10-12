@@ -11,6 +11,7 @@ import stylesDay from '../components/Day/formuller.module.css';
 import UstMenu from '../components/ustmenu';
 import cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 
 var tema = cookies.get("tema"||"Default");
@@ -63,6 +64,10 @@ export default function Formuller(){
     })
     return(
         <div className={t.main} >
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
                 {`
                 body{background-color: ${tc} ;}

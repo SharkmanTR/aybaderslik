@@ -13,6 +13,7 @@ import {PrismaClient} from '@prisma/client';
 import cookies from 'js-cookie';
 import DiyetGonder from '../diyetgon';
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
 var hh=cookies.get("hoca"||"0");
@@ -84,14 +85,20 @@ export default function DiyetYaz({hocalar}){
     },[])
     return(
         <div>
-            <UstMenu
-            pref={"diyetyaz"}></UstMenu>
-            <div id="divres">
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
             {`
             body{background-color: ${tc} ;}
             `}
             </style>
+            <UstMenu
+            pref={"diyetyaz"}></UstMenu>
+
+            <div id="divres">
+
                 {ddg!="0"&&
                 <DiyetGonder
                 oguns={osabah}
@@ -112,13 +119,12 @@ export default function DiyetYaz({hocalar}){
                 qytoh={xytoh}></DiyetGonder>
                 }
             </div>
+            <div className={t.main}>
             {hh=="1" &&
             <div>
                 <button className={t.btn} style={{width:'100%'}}>Öğrencilerin Diyetleri</button>
             </div>
             }
-
-            <div className={t.main}>
                 <div className={t.divhesap}>
                     <p className={t.h1}>Hesaplama</p>
                     <hr/>

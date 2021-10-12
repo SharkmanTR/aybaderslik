@@ -13,6 +13,7 @@ import stylesDay from '../components/Day/diyetler.module.css';
 import UstMenu from '../components/ustmenu';
 import moment from 'moment';
 import { useEffect, useState} from "react";
+import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
 let tc;
@@ -65,6 +66,10 @@ export default function Diyetler({dyt}){
     },[])
     return(
         <div className={t.main}>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
                 {`
                 body{background-color: ${tc} ;}

@@ -12,6 +12,7 @@ import stylesDarkNar from '../components/DarkNar/diyetler.module.css';
 import stylesNight from '../components/Night/diyetler.module.css';
 import stylesDay from '../components/Day/diyetler.module.css';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
 let tc;
@@ -64,6 +65,10 @@ export default function StajDefterim({dyt}){
     })
     return(
         <div>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
                 {`
                 body{background-color: ${tc} ;}

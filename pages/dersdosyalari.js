@@ -11,6 +11,7 @@ import stylesDarkNar from '../components/DarkNar/konular.module.css';
 import stylesNight from '../components/Night/konular.module.css';
 import stylesDay from '../components/Day/konular.module.css';
 import cookies from 'js-cookie';
+import Head from 'next/head';
 import { useEffect,useState } from "react";
 
 var tema = cookies.get("tema"||"Default");
@@ -71,6 +72,10 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
     })
     return(
         <div>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <style jsx global>
             {`
             body{background-color: ${tc} ;}

@@ -48,6 +48,7 @@ export default function Home() {
     </style>
       <Head>
         <title>AYBA Derslik</title>
+        <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
       </Head>
       <div>
         <UstMenu

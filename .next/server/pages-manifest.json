@@ -2,6 +2,13 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/diyetyaz": "pages/diyetyaz.js",
   "/": "pages/index.js",
-  "/diyetyaz": "pages/diyetyaz.js"
+  "/ornekmenuler": "pages/ornekmenuler.js",
+  "/dersdosyalari": "pages/dersdosyalari.js",
+  "/stajdefterim": "pages/stajdefterim.js",
+  "/degisimlistesi": "pages/degisimlistesi.js",
+  "/girisyap": "pages/girisyap.js",
+  "/uyeol": "pages/uyeol.js",
+  "/api/logincheck": "pages/api/logincheck.js"
 }

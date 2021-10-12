@@ -122,7 +122,7 @@ export default function DiyetYaz({hocalar}){
             <div className={t.main}>
             {hh=="1" &&
             <div>
-                <button className={t.btn} style={{width:'100%'}}>Öğrencilerin Diyetleri</button>
+                <button className={t.btn} style={{width:'100%'}} onClick={diyetlerc}>Öğrencilerin Diyetleri</button>
             </div>
             }
                 <div className={t.divhesap}>
@@ -3126,6 +3126,9 @@ function stilc2(){
     const s2 =document.getElementById("divstil2");
     s1.style.display="none";
     s2.style.display="block";
+}
+function diyetlerc(){
+    window.location.href='/diyetler'
 }
 var xdegisimler =[
     { id:'1', grup:'sut', q:'1', ad:'su bardağı süt'},

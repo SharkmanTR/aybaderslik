@@ -59,7 +59,7 @@ export default function UstMenu({pref}){
 
                     </Image>
                     <button className={t.menubtn} onClick={fanasayfa}>
-                        Ayba Derslik
+                        AYBA
                     </button>
                 </div>
                 <div className={t.menuitem}>

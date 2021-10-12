@@ -2028,7 +2028,7 @@ export default function DegisimListesi(){
                                 <p className={t.h2}>3 Parmak Boyutunda</p>
                             </div>
                             <div className={t.img}>
-                                <Image src="/img/3parmak.png" width={'136px'} height={'298px'} alt="img">
+                                <Image className={t.img2} src="/img/3parmak.png" width={'136px'} height={'298px'} alt="img">
 
                                 </Image>
                             </div>

@@ -2,7 +2,6 @@ import cookies from 'js-cookie'
 import styles from '../components/Default/login.module.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { PrismaClient } from '@prisma/client';
 
 var md5 = require('md5');
 

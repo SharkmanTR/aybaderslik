@@ -3,9 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/diyetler": "pages/diyetler.js",
-  "/dersdosyalari": "pages/dersdosyalari.js",
-  "/api/diyetler": "pages/api/diyetler.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/diyetyaz": "pages/diyetyaz.js",
-  "/api/diyetgon": "pages/api/diyetgon.js"
+  "/diyetyaz": "pages/diyetyaz.js"
 }

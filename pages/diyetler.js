@@ -38,9 +38,10 @@ if(tema=="Default"){
 }else if (tema=="Day"){
     tc="#EDF6F5";
 }
-export default function Diyetler({dyt}){
+export default function Diyetler(){
 
     const [t,sett]=useState(styles);
+    const [dyt,dddset]=useState([]);
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -63,6 +64,7 @@ export default function Diyetler({dyt}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
+        dosget();
     },[])
     return(
         <div className={t.main}>
@@ -296,6 +298,23 @@ export default function Diyetler({dyt}){
             ))}
         </div>
     );
+    async function dosget() {
+        const dos = await fetch('./api/diyetler',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                xuni:cookies.get("uni"),
+                xhoca:cookies.get("id")
+            })
+        })
+    
+        const dyt2 = await dos.json();
+        dddset(dyt2);
+        return{
+            props:{dyt2}
+        }
+    
+    }
 }
 export async function getStaticProps(){
     const prisma = new PrismaClient();
@@ -315,6 +334,7 @@ export async function getStaticProps(){
         }
     }
 }
+
 function divclick(){
     var i =event.srcElement.id;
     if(document.getElementById('divdet'+i).style.display=="none"){

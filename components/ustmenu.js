@@ -115,10 +115,10 @@ export default function UstMenu({pref}){
                 </div>
                 <hr style={{borderColor:'darkgray',borderWidth:'1px'}}></hr>
                 <div className={t.menuitem}>
-                    <Image src="/icons/profil.png" width={'32px'} height={'32px'} alt="">
+                    <Image src="/icons/profil.png" width={'32px'} height={'32px'} alt="" onClick={btnprofilc}>
                     
                     </Image>
-                    <button className={t.menubtn}>
+                    <button className={t.menubtn} onClick={btnprofilc}>
                         Profil
                     </button >
                 </div>
@@ -299,5 +299,7 @@ export default function UstMenu({pref}){
         cookies.set("tema","Day",{expires:24*90});
         window.location.href="/"+pref;
     }
-
+    function btnprofilc() {
+        window.location.href='/profil'        
+    }
 }

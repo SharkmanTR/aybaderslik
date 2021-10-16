@@ -4,6 +4,7 @@ import Image from 'next/image';
 import brkd from '../public/img/barkod.png';
 import { useEffect } from "react";
 import Head from 'next/head';
+import cookies from 'js-cookie';
 
 
 var md5 = require('md5');

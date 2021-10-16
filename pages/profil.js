@@ -115,7 +115,6 @@ export default function Profil({res}) {
             })
         })
         const res = await udata.json();
-        console.log(res.map(r=>r.adsoyad));
         setad(res.map(r=>r.adsoyad));
         return{
             props:{

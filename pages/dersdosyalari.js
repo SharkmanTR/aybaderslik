@@ -36,7 +36,9 @@ if(tema=="Default"){
     tc="#1a1a1a";
 }else if (tema=="Day"){
     tc="#EDF6F5";
-}
+}else {
+    tc="#dadada";
+  }
 
 export default function DersDosyalari({konular4,konular3,konular2,konular1}){
     konular4 = konular4 || "";
@@ -45,7 +47,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
     konular1 = konular1 || ""
     const s= cookies.get("sinif");
     const u = cookies.get("uni");
-    
+    const l=cookies.get("login")||"0";
     const [t,sett]=useState(styles);
     useEffect(()=>{
         if(tema=="Default"){
@@ -68,6 +70,9 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
             sett(stylesNight);
         }else if (tema=="Day"){
             sett(stylesDay);
+        }
+        if(l=="0"){
+            window.location.href="/girisyap"
         }
     })
     return(

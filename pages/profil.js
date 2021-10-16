@@ -9,7 +9,7 @@ import stylesDarkNar from '../components/DarkNar/formuller.module.css';
 import stylesNight from '../components/Night/formuller.module.css';
 import stylesDay from '../components/Day/formuller.module.css';
 import UstMenu from '../components/ustmenu';
-import {PrismaClient} from '@prisma/client';
+import {PrismaClient,Prisma} from '@prisma/client';
 import cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
@@ -36,10 +36,18 @@ if(tema=="Default"){
     tc="#1a1a1a";
 }else if (tema=="Day"){
     tc="#EDF6F5";
-}
+}else {
+    tc="#dadada";
+  }
 
-export default function Profil() {
+export default function Profil({res}) {
     const[t,sett]=useState(styles);
+    const l=cookies.get("login")||"0";
+    const [ad,setad]=useState();
+    if(ad==null){
+        getUser();
+    }
+
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -62,6 +70,10 @@ export default function Profil() {
         }else if (tema=="Day"){
             sett(stylesDay);
         }
+        if(l=="0"){
+            window.location.href="/girisyap";
+        }
+
     })
     return(
         <div className={t.main}>
@@ -78,7 +90,7 @@ export default function Profil() {
                 </div>
                 <div className={t.pinf}>
                     <p className={t.h2}>Ad-Soyad:</p>
-                    <p className={t.h3}>Deniz ARLI</p>
+                    <p className={t.h3}>{ad}</p>
                 </div>
                 <div className={t.pinf}>
                     <p className={t.h2}>Numara:</p>
@@ -92,12 +104,23 @@ export default function Profil() {
             </div>
         </div>
     )
-}
-export async function getStaticProps() {
-    
-    return{
-        props:{
-
+    async function getUser() {
+        const udata = await fetch("./api/profcheck",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                uid:cookies.get("id"),
+                uemail:cookies.get("email"),
+                usifre:cookies.get("sifre")
+            })
+        })
+        const res = await udata.json();
+        console.log(res.map(r=>r.adsoyad));
+        setad(res.map(r=>r.adsoyad));
+        return{
+            props:{
+                res
+            }
         }
     }
 }

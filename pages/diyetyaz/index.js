@@ -39,7 +39,9 @@ else if (tema=="Wisteria"){
     tc="#1a1a1a";
 }else if (tema=="Day"){
     tc="#EDF6F5";
-}
+}else {
+    tc="#dadada";
+  }
 export default function DiyetYaz({hocalar}){
     const [ddg,setddg]=useState("0");
     const [osabah,setsabah]=useState();

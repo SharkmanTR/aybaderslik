@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/diyetler": "pages/diyetler.js",
-  "/diyetyaz": "pages/diyetyaz.js"
+  "/": "pages/index.js",
+  "/girisyap": "pages/girisyap.js",
+  "/api/profcheck": "pages/api/profcheck.js",
+  "/profil": "pages/profil.js"
 }

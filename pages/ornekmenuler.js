@@ -38,9 +38,12 @@ else if(tema=="DarkSlateBlue"){
     tc="#1a1a1a";
 }else if (tema=="Day"){
     tc="#EDF6F5";
-}
+}else {
+    tc="#dadada";
+  }
 export default function OrnekMenuler({dyt}){
     const [t,sett]=useState(styles);
+    const l= cookies.get("login")||"0";
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -62,6 +65,9 @@ export default function OrnekMenuler({dyt}){
             sett(stylesNight);
         }else if (tema=="Day"){
             sett(stylesDay);
+        }
+        if(l=="0"){
+            window.location.href="/girisyap";
         }
     })
     return(

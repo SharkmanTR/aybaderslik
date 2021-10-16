@@ -53,6 +53,8 @@ export default function DiyetGonder({oguns,oguno,oguna,ogunr1,ogunr2,ogunr3}){
             sett(stylesDarkNar);
         }else if (tema=="Night"){
             sett(stylesNight);
+        }else {
+            tc="#dadada";
         }
     })
     

@@ -9,6 +9,12 @@ import Head from 'next/head';
 var md5 = require('md5');
 
 export default function UyeOl() {
+    const l=cookies.get("login")||"0";
+    useEffect(()=>{
+        if(l=="1"){
+            window.location.href="/";
+        }
+    })
     return(
         <div className={styles.main}>
             <Head>
@@ -17,7 +23,7 @@ export default function UyeOl() {
             </Head>
             <style jsx global>
             {`
-            body{background-color: #ddd ;}
+            body{background-color: #dadada ;}
             `}
             </style>
             <div className={styles.mainright}>

@@ -29,8 +29,8 @@ export default function GirisYap(ls){
                     <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
                 </Head>
                 <div className={styles.login}>
-                    <input id="txtemail" type="text" className={styles.inputlgn} />
-                    <input id="txtsifre" type="password"  className={styles.inputlgn} />
+                    <input id="txtemail" type="text" placeholder="E-posta" className={styles.inputlgn} />
+                    <input id="txtsifre" type="password" placeholder="Şifre"  className={styles.inputlgn} />
                     <button className={styles.btnlogin} onClick={btngirisclick}>
                         Giriş Yap
                     </button>

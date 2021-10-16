@@ -36,10 +36,13 @@ if(tema=="Default"){
     tc="#1a1a1a";
 }else if (tema=="Day"){
     tc="#EDF6F5";
-}
+}else {
+    tc="#dadada";
+  }
 
 export default function StajDefterim({dyt}){
     const [t,sett]=useState(styles);
+    const l = cookies.get("login")||"0";
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -61,6 +64,9 @@ export default function StajDefterim({dyt}){
             sett(stylesNight);
         }else if (tema=="Day"){
             sett(stylesDay);
+        }
+        if(l=="0"){
+            window.location.href="/girisyap"
         }
     })
     return(

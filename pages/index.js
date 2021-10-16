@@ -28,9 +28,11 @@ if(tema=="Default"){
   tc="#1a1a1a";
 }else if (tema=="Day"){
   tc="#EDF6F5";
+}else {
+  tc="#dadada";
 }
 export default function Home() {
-  const l = cookies.get('login'||"0");
+  const l = cookies.get("login")||"0";
   const d= cookies.get("durum");
   useEffect(()=>{
     if(l=="0"){

@@ -313,31 +313,12 @@ export default function Diyetler(){
                 xhoca:cookies.get("id")
             })
         })
-    
         const dyt2 = await dos.json();
         dddset(dyt2);
         return{
             props:{dyt2}
         }
     
-    }
-}
-export async function getStaticProps(){
-    const prisma = new PrismaClient();
-    const dyt = await prisma.aybaDiyetler.findMany({
-        orderBy:{id:'desc'},
-        where:{
-            hoca:cookies.get("id"||""),
-            uni:cookies.get("uni"||""),
-            gun:moment().format('DD'),
-            ay:moment().format('MM'),
-            yil:moment().format('YYYY')
-        }
-    });
-    return{
-        props:{
-            dyt
-        }
     }
 }
 

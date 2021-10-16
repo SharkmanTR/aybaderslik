@@ -9,8 +9,8 @@ import stylesDarkNar from '../components/DarkNar/formuller.module.css';
 import stylesNight from '../components/Night/formuller.module.css';
 import stylesDay from '../components/Day/formuller.module.css';
 import UstMenu from '../components/ustmenu';
-import {PrismaClient,Prisma} from '@prisma/client';
 import cookies from 'js-cookie';
+import Image  from 'next/image';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
@@ -43,12 +43,17 @@ if(tema=="Default"){
 export default function Profil({res}) {
     const[t,sett]=useState(styles);
     const l=cookies.get("login")||"0";
-    const [ad,setad]=useState();
-    if(ad==null){
-        getUser();
-    }
+    const [ad,setad]=useState(cookies.get("adsoyad"));
+    const [no,setno]=useState(cookies.get("ono"));
+    const [snf,setsnf]=useState(cookies.get("sinif"));
+    const [eml,seteml]=useState(cookies.get("email"));
+    const [un,setuni]=useState(cookies.get("uni"));
 
     useEffect(()=>{
+        if(l=="0"){
+            window.location.href="/girisyap";
+        }
+        
         if(tema=="Default"){
             sett(styles);
         }else if(tema=="DefaultDark"){
@@ -70,22 +75,23 @@ export default function Profil({res}) {
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-        if(l=="0"){
-            window.location.href="/girisyap";
-        }
-
     })
     return(
         <div className={t.main}>
             <style jsx global>
             {`
             body{background-color: ${tc} ;}
+            #divpimg{background-image: url("/unilogo/${un}.png");}
             `}
             </style>
+            <Head>
+                <title>AYBA Derslik</title>
+                <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
+            </Head>
             <UstMenu
             pref={"profil"}></UstMenu>
             <div className={t.card}>
-                <div className={t.pimg}>
+                <div id="divpimg" className={t.pimg}>
 
                 </div>
                 <div className={t.pinf}>
@@ -94,32 +100,17 @@ export default function Profil({res}) {
                 </div>
                 <div className={t.pinf}>
                     <p className={t.h2}>Numara:</p>
-                    <p className={t.h3}>1924200107</p>
+                    <p className={t.h3}>{no}</p>
                 </div>
                 <div className={t.pinf}>
                     <p className={t.h2}>Sınıf:</p>
-                    <p className={t.h3}>6</p>
+                    <p className={t.h3}>{snf}</p>
                 </div>
-                
+                <div className={t.pinf}>
+                    <p className={t.h2}>E-Posta:</p>
+                    <p className={t.h3}>{eml}</p>
+                </div>
             </div>
         </div>
     )
-    async function getUser() {
-        const udata = await fetch("./api/profcheck",{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({
-                uid:cookies.get("id"),
-                uemail:cookies.get("email"),
-                usifre:cookies.get("sifre")
-            })
-        })
-        const res = await udata.json();
-        setad(res.map(r=>r.adsoyad));
-        return{
-            props:{
-                res
-            }
-        }
-    }
 }

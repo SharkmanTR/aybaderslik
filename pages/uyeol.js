@@ -69,7 +69,7 @@ export default function UyeOl() {
                         <option className={styles.option} value="5">Mezun</option>
                         <option className={styles.option} value="6">Yüksek lisans</option>
                     </select>
-                    <p className={styles.input}>Doğum tarihiniz</p>
+                    <p className={styles.input} placeholder="27-12-1994">Doğum tarihiniz</p>
                     <input id="txtdtarihi" type="date" className={styles.input} placeholder="Doğum tarihiniz (Gün/Ay/Yıl)"></input>
                     <button className={styles.btn} onClick={kayitc}>Kayıt Ol</button>
                     <p className={styles.h2}>Kullanım şartlarını kabul ediyorum.</p>

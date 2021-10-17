@@ -10,9 +10,10 @@ import stylesNight from '../components/Night/formuller.module.css';
 import stylesDay from '../components/Day/formuller.module.css';
 import UstMenu from '../components/ustmenu';
 import cookies from 'js-cookie';
-import Image  from 'next/image';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+
+var md5 = require('md5');
 
 var tema = cookies.get("tema"||"Default");
 let tc;
@@ -48,6 +49,7 @@ export default function Profil({res}) {
     const [snf,setsnf]=useState(cookies.get("sinif"));
     const [eml,seteml]=useState(cookies.get("email"));
     const [un,setuni]=useState(cookies.get("uni"));
+    const [passvis,setvis]=useState("none");
 
     useEffect(()=>{
         if(l=="0"){
@@ -85,7 +87,7 @@ export default function Profil({res}) {
             `}
             </style>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Profil</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <UstMenu
@@ -94,21 +96,23 @@ export default function Profil({res}) {
                 <div id="divpimg" className={t.pimg}>
 
                 </div>
-                <div className={t.pinf}>
-                    <p className={t.h2}>Ad-Soyad:</p>
-                    <p className={t.h3}>{ad}</p>
-                </div>
-                <div className={t.pinf}>
-                    <p className={t.h2}>Numara:</p>
-                    <p className={t.h3}>{no}</p>
-                </div>
-                <div className={t.pinf}>
-                    <p className={t.h2}>Sınıf:</p>
-                    <p className={t.h3}>{snf}</p>
-                </div>
-                <div className={t.pinf}>
-                    <p className={t.h2}>E-Posta:</p>
-                    <p className={t.h3}>{eml}</p>
+                <div style={{float:"left"}}>
+                    <div className={t.pinf}>
+                        <p className={t.h2}>Ad-Soyad:</p>
+                        <p className={t.h3}>{ad}</p>
+                    </div>
+                    <div className={t.pinf}>
+                        <p className={t.h2}>Numara:</p>
+                        <p className={t.h3}>{no}</p>
+                    </div>
+                    <div className={t.pinf}>
+                        <p className={t.h2}>Sınıf:</p>
+                        <p className={t.h3}>{snf}</p>
+                    </div>
+                    <div className={t.pinf}>
+                        <p className={t.h2}>E-Posta:</p>
+                        <p className={t.h3}>{eml}</p>
+                    </div>
                 </div>
             </div>
         </div>

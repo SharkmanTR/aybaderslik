@@ -78,7 +78,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
     return(
         <div>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Ders Dosyaları</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

@@ -29,10 +29,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/profil": [
+    "/dersdosyalari": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/profil.js"
+      "static/chunks/pages/dersdosyalari.js"
     ]
   },
   "ampFirstPages": []

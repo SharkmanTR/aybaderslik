@@ -68,7 +68,7 @@ export default function StajDefterim({dyt}){
         if(l=="0"){
             window.location.href="/girisyap"
         }
-    })
+    },[])
     return(
         <div>
             <Head>

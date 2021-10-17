@@ -67,7 +67,7 @@ export default function Formuller(){
         if(l=="0"){
             window.location.href="/girisyap";
         }
-    })
+    },[])
     return(
         <div className={t.main} >
             <Head>

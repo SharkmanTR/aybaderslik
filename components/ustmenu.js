@@ -40,13 +40,13 @@ export default function UstMenu({pref}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-    });
+    },[]);
     const [lk,setlk]=useState("");
     useEffect(()=>{
         if(lk!=""){
             window.location.href=lk;
         }
-    })
+    },[])
 
     return(
 
@@ -187,7 +187,7 @@ export default function UstMenu({pref}){
 
                     </div>
                     <button className={t.temabtn}>
-                        Nar Kırmızısı
+                        Nar
                     </button >
                 </div>
                 <div className={t.menuitem} onClick={tdarknarc}>
@@ -195,7 +195,7 @@ export default function UstMenu({pref}){
 
                     </div>
                     <button className={t.temabtn}>
-                        Koyu Nar Kırmızısı
+                        Koyu Nar
                     </button >
                 </div>
                 <div className={t.menuitem} onClick={tdayc} >

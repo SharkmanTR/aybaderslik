@@ -56,7 +56,7 @@ export default function DiyetGonder({oguns,oguno,oguna,ogunr1,ogunr2,ogunr3}){
         }else {
             tc="#dadada";
         }
-    })
+    },[])
     
     return(
         

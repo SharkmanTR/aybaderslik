@@ -75,7 +75,7 @@ export default function Ingilizce(){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-    })
+    },[])
     return(
         <div className={t.main} onClick={clickrandom}>
             <p className={t.h1}>{k1}</p>

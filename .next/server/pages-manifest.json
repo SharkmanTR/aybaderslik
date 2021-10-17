@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/uyeol": "pages/uyeol.js"
+  "/profil": "pages/profil.js",
+  "/dersdosyalari": "pages/dersdosyalari.js",
+  "/": "pages/index.js"
 }

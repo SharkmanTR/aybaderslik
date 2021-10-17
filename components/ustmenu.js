@@ -40,13 +40,13 @@ export default function UstMenu({pref}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-    },[]);
+    });
     const [lk,setlk]=useState("");
     useEffect(()=>{
         if(lk!=""){
             window.location.href=lk;
         }
-    },[])
+    })
 
     return(
 

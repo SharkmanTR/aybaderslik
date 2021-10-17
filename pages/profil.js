@@ -76,7 +76,7 @@ export default function Profil({res}) {
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-    },[])
+    })
     return(
         <div className={t.main}>
             <style jsx global>

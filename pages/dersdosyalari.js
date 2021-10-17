@@ -74,7 +74,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
         if(l=="0"){
             window.location.href="/girisyap"
         }
-    },[])
+    })
     return(
         <div>
             <Head>

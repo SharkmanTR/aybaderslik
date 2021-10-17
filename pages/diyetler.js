@@ -71,7 +71,7 @@ export default function Diyetler(){
             window.location.href="/girisyap"
         }
         dosget();
-    },[])
+    })
     return(
         <div className={t.main}>
             <Head>

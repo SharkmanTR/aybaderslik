@@ -8,7 +8,7 @@ import cookies from 'js-cookie';
 
 
 var md5 = require('md5');
-
+var dn=moment().format("YYYY");
 export default function UyeOl() {
     const l=cookies.get("login")||"0";
     useEffect(()=>{
@@ -43,7 +43,7 @@ export default function UyeOl() {
                     </select>
                     <input id="txtgc" className={styles.input} placeholder="Güvenlik sorunuzun cevabı"></input>
                     <input id="txtbarkod" className={styles.input} placeholder="Öğrenci belgenizin barkod numarası"></input>
-                    <input id="txttc" className={styles.input} placeholder="TC kimlik numaranız" type="number"></input>
+                    <input id="txttc" type="number" className={styles.input} placeholder="TC kimlik numaranız" type="number"></input>
                     <input id="txtad" className={styles.input} placeholder="Adınız-soyadınız"></input>
                     <select id="dduni" className={styles.select}>
                         <option className={styles.option} value="0">Üniversitenizi seçiniz</option>
@@ -69,11 +69,19 @@ export default function UyeOl() {
                         <option className={styles.option} value="5">Mezun</option>
                         <option className={styles.option} value="6">Yüksek lisans</option>
                     </select>
-                    <p className={styles.input} placeholder="27-12-1994">Doğum tarihiniz</p>
-                    <input id="txtdtarihi" type="date" className={styles.input} placeholder="Doğum tarihiniz (Gün/Ay/Yıl)"></input>
+                    <input id="txtdtarihi" placeholder="Doğum tarihiniz(Gün-Ay-Yıl):" className={styles.input}></input>
+                    <select className={styles.select}>
+                        <option className={styles.option}>1 yıllık (144 ₺)</option>
+                    </select>
                     <button className={styles.btn} onClick={kayitc}>Kayıt Ol</button>
                     <p className={styles.h2}>Kullanım şartlarını kabul ediyorum.</p>
-
+            </div>
+            <hr></hr>
+            <div className={styles.mainleft}>
+                <p className={styles.h1}>Ödemelerinizi aşağıda bulunan iban numaralarına yapabilirsiniz.</p>
+                <p className={styles.h2}>Ziraat Bankası</p>
+                <p className={styles.h2}>Deniz ARLI</p>
+                <p className={styles.h2}>IBAN: TR 2500 0100 0211 5044 8987 5001</p>
             </div>
             <hr></hr>
             <div className={styles.mainleft}>
@@ -83,7 +91,7 @@ export default function UyeOl() {
                 <p className={styles.h2}>E-devlet üzerinden &quot;Öğrenci Belgesi Sorgulama (Yükseköğretim Kurulu Başkanlığı)&quot; hizmetinden faydalanarak öğrenci belgenizi oluşturabilirsiniz.
 Belgenizin sağ üst kısmında bulunan barkod numaranızı, kayıt formunda ilgili alana yazabilirsiniz.
 Örnek barkod aşağıda gösterilmiştir.</p>
-                <Image alt="" className={styles.Image} src={brkd} width={'10px'} height={'10px'}></Image>
+                <Image alt="" className={styles.Image} src={brkd} width={'423px'} height={'173px'}></Image>
                 <p className={styles.h1}>2) TC kimlik numarana niye ihtiyaç duyuyoruz?</p>
                 <p className={styles.h2}>Beslenme ve diyetetik öğrencisi olup olmadığını doğrulamak için e-devlet üzerinden &quot;Öğrenci Belgesi Doğrulama&quot; sistemini kullanmaktayız.
 Doğrulamayı yapabilmek için TC kimlik numarana ihtiyaç duyuyoruz.

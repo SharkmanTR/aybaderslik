@@ -121,13 +121,13 @@ export default function Profil({res}) {
                     bütün beslenme ve diyetetik öğrencilerinin kullanımına sunulmuştur. 2016 yılında, sadece Adnan Menderes Üniversitesi öğrencilerinin kullandığı yazılım,
                     içerisinde sadece ders dosyaları ve devamsızlık takibini barındırmaktaydı. O zamanlar ismi BBL Derslik olan yazılım, beslenme ve diyetetik eğitimindeki
                     bir problemi gidermek için ortaya çıkmıştı. Beslenme ve diyetetik bölümü ders notlarının fotokopicilerde halka açık şekilde bulunması mesleki açıdan risk oluşturmaktaydı.
-                    Bizlerin en önemli eğitim materyallerinden olan ders notlarımızın beslenme ve diyetetik bölümünden olmayan insanlara satılması BBL Derslik'i doğurdu.
-                     2016-2018 yılları arasında aktif bir şekilde kullanıldıktan sonra yazılımı kodlayan beslenme ve diyetetik öğrencisi Deniz ARLI'nın mezun olmasıyla birlikte kullanımdan kalktı.
+                    Bizlerin en önemli eğitim materyallerinden olan ders notlarımızın beslenme ve diyetetik bölümünden olmayan insanlara satılması BBL Derslik&apos;i doğurdu.
+                     2016-2018 yılları arasında aktif bir şekilde kullanıldıktan sonra yazılımı kodlayan beslenme ve diyetetik öğrencisi Deniz ARLI&apos;nın mezun olmasıyla birlikte kullanımdan kalktı.
                       2021 yılına gelindiğinde ise, içerisinde qr kodla yoklama alma sistemi, hocalara diyet yazıp gönderme sistemi, örnek menüler ve çeşitli eğitim materyalleri 
                       eklendikten sonra AYBA Derslik ismiyle piyasaya sürüldü. Başlarda yapay zeka destekli diyetisyen asistenı olarak tasarlanan yazılım daha sonra öğrenci asistenı olacak şekilde 
-                      evrim geçirdi. 2021 temmuz ayında hazırlanmaya başlanan yazılım ağustos ayında tamamlanarak açık beta test sürecine girdi. İsmini Ayşe Baysal'dan alan sistem, öğrenciler için
+                      evrim geçirdi. 2021 temmuz ayında hazırlanmaya başlanan yazılım ağustos ayında tamamlanarak açık beta test sürecine girdi. İsmini Ayşe Baysal&apos;dan alan sistem, öğrenciler için
                      ucuz erişilebilen ve öğrencilerin verimliliklerini arttırmayı hedefleyen bir yazılım olma misyonuyla beslenme ve diyetetik öğrencilerine faydalı olma yolunde emin adımlarla ilerlemektedir.
-                      Sistemin hazırlanmasında emeği geçen Feyza Nur Kutlu, Gizem Çetinkaya ve Mahmut Çeri'ye teşekkür ederiz.</p>
+                      Sistemin hazırlanmasında emeği geçen Feyza Nur Kutlu, Gizem Çetinkaya ve Mahmut Çeri&apos;ye teşekkür ederiz.</p>
                     <div className={t.img}></div>
                     <p className={t.h2} style={{textAlign:"center",width:"100%"}}>Aydın Adnan Menderes Üniversitesi <br></br>Sağlık Bilimleri Fakültesi<br></br>Beslenme ve Diyetetik Öğrencileri<br></br>BBL Derslik Tanıtımı<br></br>2016</p>
                 </div>

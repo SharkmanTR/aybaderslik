@@ -43,7 +43,7 @@ export default function UyeOl() {
                     </select>
                     <input id="txtgc" className={styles.input} placeholder="Güvenlik sorunuzun cevabı"></input>
                     <input id="txtbarkod" className={styles.input} placeholder="Öğrenci belgenizin barkod numarası"></input>
-                    <input id="txttc" type="number" className={styles.input} placeholder="TC kimlik numaranız" type="number"></input>
+                    <input id="txttc" type="number" className={styles.input} placeholder="TC kimlik numaranız" ></input>
                     <input id="txtad" className={styles.input} placeholder="Adınız-soyadınız"></input>
                     <select id="dduni" className={styles.select}>
                         <option className={styles.option} value="0">Üniversitenizi seçiniz</option>

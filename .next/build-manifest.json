@@ -29,11 +29,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/dersdosyalari": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/dersdosyalari.js"
-    ],
     "/profil": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

@@ -73,7 +73,7 @@ export default function DegisimListesi(){
     return(
         <div className={t.main}>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Değişim Listesi</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

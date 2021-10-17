@@ -72,7 +72,7 @@ export default function StajDefterim({dyt}){
     return(
         <div>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Staj Defterim</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

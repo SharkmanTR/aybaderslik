@@ -88,7 +88,7 @@ export default function DiyetYaz({hocalar}){
     return(
         <div>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Diyet Yaz</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

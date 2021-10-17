@@ -71,7 +71,7 @@ export default function Formuller(){
     return(
         <div className={t.main} >
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Formüller</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

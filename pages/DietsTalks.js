@@ -72,7 +72,7 @@ export default function DiyetsTalks() {
     return(
         <div>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Diets Talks</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

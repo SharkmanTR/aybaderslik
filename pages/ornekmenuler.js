@@ -73,7 +73,7 @@ export default function OrnekMenuler({dyt}){
     return(
         <div className={t.main}>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Örnek Menüler</title>
                 <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
             </Head>
             <style jsx global>

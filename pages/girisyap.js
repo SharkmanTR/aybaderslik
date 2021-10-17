@@ -25,7 +25,7 @@ export default function GirisYap(ls){
         
         <div>
                 <Head>
-                    <title>AYBA Derslik</title>
+                    <title>AYBA Derslik | Giriş Yap</title>
                     <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
                 </Head>
                 <div className={styles.login}>

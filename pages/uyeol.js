@@ -19,7 +19,7 @@ export default function UyeOl() {
     return(
         <div className={styles.main}>
             <Head>
-                <title>AYBA Derslik</title>
+                <title>AYBA Derslik | Üye Ol</title>
                 <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
             </Head>
             <style jsx global>

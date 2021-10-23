@@ -105,7 +105,7 @@ export default function UstMenu({pref}){
                         Formüller
                     </button >
                 </div>
-                <div className={t.menuitem}>
+                <div className={t.menuitem} style={{display:"none"}}>
                     <Image src="/icons/devamsizlik.png" width={'32px'} height={'32px'} alt="">
                     
                     </Image>

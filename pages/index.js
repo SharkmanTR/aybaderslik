@@ -57,6 +57,16 @@ export default function Home() {
         pref={""}
         ></UstMenu>
         <div style={{width:'100%',height:'500px',marginTop:'50px'}}>
+          <img alt="" src="/img/puzzle.png" onClick={bclick} style={{
+            objectFit:'contain',
+            objectPosition:'center',
+            width:'100%',
+            height:'100%',
+            cursor:'pointer'
+            
+          }}></img>
+        </div>
+        <div style={{width:'100%',height:'500px',marginTop:'50px'}}>
           <img alt="" src="/dergi/1.png" style={{
             objectFit:'contain',
             objectPosition:'center',
@@ -75,6 +85,9 @@ export default function Home() {
   )
   function dergic() {
     window.location.href="/DietsTalks";
+  }
+  function bclick() {
+    window.location.href="/bulmaca"
   }
 
 }

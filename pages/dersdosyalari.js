@@ -14,7 +14,7 @@ import cookies from 'js-cookie';
 import Head from 'next/head';
 import { useEffect,useState } from "react";
 
-var tema = cookies.get("tema"||"Default");
+var tema = cookies.get("tema")||"Default";
 let tc;
 if(tema=="Default"){
     tc="#dadada";

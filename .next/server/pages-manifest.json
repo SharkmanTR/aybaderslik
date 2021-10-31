@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/dersdosyalari": "pages/dersdosyalari.js",
-  "/ornekmenuler": "pages/ornekmenuler.js"
+  "/": "pages/index.js",
+  "/bulmaca": "pages/bulmaca.js"
 }

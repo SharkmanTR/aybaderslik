@@ -44,7 +44,7 @@ export default function Diyetler(){
 
     const [t,sett]=useState(styles);
     const [dyt,dddset]=useState([]);
-    const l = cookies.get("login")||"0";
+    const l = cookies.get("lg")||"0";
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);

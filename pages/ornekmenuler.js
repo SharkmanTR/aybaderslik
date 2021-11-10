@@ -43,7 +43,7 @@ else if(tema=="DarkSlateBlue"){
   }
 export default function OrnekMenuler({dyt}){
     const [t,sett]=useState(styles);
-    const l= cookies.get("login")||"0";
+    const l= cookies.get("lg")||"0";
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);

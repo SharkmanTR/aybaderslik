@@ -39,7 +39,7 @@ if(tema=="Default"){
 }
 
 export default function DegisimListesi(){
-    const l = cookies.get("login")||"0";
+    const l = cookies.get("lg")||"0";
     const [t,sett]=useState(styles);
     useEffect(()=>{
         if(tema=="Default"){

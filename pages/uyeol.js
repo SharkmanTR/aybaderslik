@@ -10,7 +10,7 @@ import cookies from 'js-cookie';
 var md5 = require('md5');
 var dn=moment().format("YYYY");
 export default function UyeOl() {
-    const l=cookies.get("login")||"0";
+    const l=cookies.get("lg")||"0";
     useEffect(()=>{
         if(l=="1"){
             window.location.href="/";

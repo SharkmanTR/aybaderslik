@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/DietsTalks": "pages/DietsTalks.js",
-  "/bulmaca": "pages/bulmaca.js"
+  "/girisyap": "pages/girisyap.js",
+  "/": "pages/index.js"
 }

@@ -8,7 +8,7 @@ var md5 = require('md5');
 
 
 export default function GirisYap(ls){
-    const l = cookies.get('login');
+    const l = cookies.get('lg');
     const d =cookies.get('durum');
     const [ll,setl]=useState("x");
     useEffect(()=>{
@@ -65,7 +65,7 @@ export default function GirisYap(ls){
             const as = res.map(r=>r.adsoyad);
             const hh = res.map(r=>r.hoca);
             const dd=res.map(r=>r.durum);
-            cookies.set("login","1",{expires:24*90});
+            cookies.set("lg","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});
             cookies.set("pass",sf,{expires:24*90});
@@ -79,7 +79,29 @@ export default function GirisYap(ls){
 
         }else if(lng=="0"){
             alert("Hesabınız henüz onaylanmadı. Bu onaylanma süreci en fazla 24 saat sürmektedir.");
-        }else{
+        }else if (lng=="2"){
+            const id = res.map(r=>r.id);
+            const ono =res.map(r=>r.ono);
+            const uni=res.map(r=>r.uni);
+            const sinif=res.map(r=>r.sinif);
+            const em=res.map(r=>r.email);
+            const sf=res.map(r=>r.sifre);
+            const as = res.map(r=>r.adsoyad);
+            const hh = res.map(r=>r.hoca);
+            const dd=res.map(r=>r.durum);
+            cookies.set("lg","1",{expires:24*90});
+            cookies.set("id",id,{expires:24*90});
+            cookies.set("email",em,{expires:24*90});
+            cookies.set("pass",sf,{expires:24*90});
+            cookies.set("sinif",sinif,{expires:24*90});
+            cookies.set("uni",uni,{expires:24*90});
+            cookies.set("ono",ono,{expires:24*90});
+            cookies.set("adsoyad",as,{expires:24*90});
+            cookies.set("hoca",hh,{expires:24*90});
+            cookies.set("durum",dd,{expires:24*90});
+            setl("1");
+        }
+        else{
             alert("Giriş başarısız.");
         }
 

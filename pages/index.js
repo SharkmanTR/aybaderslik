@@ -32,7 +32,7 @@ if(tema=="Default"){
   tc="#dadada";
 }
 export default function Home() {
-  const l = cookies.get("login")||"0";
+  const l = cookies.get("lg")||"0";
   const d= cookies.get("durum");
   useEffect(()=>{
     if(l=="0"){
@@ -56,6 +56,18 @@ export default function Home() {
         <UstMenu
         pref={""}
         ></UstMenu>
+        <div style={{width:"100%",marginTop:"60px"}}>
+          {d=="2"&&
+          <div>
+            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Hizmetlerimizden faydalanmaya devam etmek için lütfen en kısa zamanda abonelik ücretinizi ödeyiniz. Zaten ödeme yaptıysanız bu mesajı dikkate almayınız.</p>
+            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Ödemelerinizi aşağıda bulunan iban numaralarına yapabilirsiniz.</p>
+            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Ziraat Bankası</p>
+            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Deniz ARLI</p>
+            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>IBAN: TR 2500 0100 0211 5044 8987 5001</p>
+          </div>
+
+          }
+        </div>
         <div style={{width:'100%',height:'500px',marginTop:'50px'}}>
           <img alt="" src="/img/puzzle.png" onClick={bclick} style={{
             objectFit:'contain',

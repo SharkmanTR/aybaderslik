@@ -16,7 +16,8 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
-var hh=cookies.get("hoca"||"0");
+var hh=cookies.get("hoca")||"0";
+const l = cookies.get("lg")||"0";
 let tc;
 if(tema=="Default"){
 tc="#dadada";
@@ -63,6 +64,9 @@ export default function DiyetYaz({hocalar}){
 
     const [t,sett]=useState(styles);
     useEffect(()=>{
+        if(l=="0"){
+            window.location.href='/girisyap';
+          }
         if(tema=="Default"){
             sett(styles);
         }else if(tema=="DefaultDark"){

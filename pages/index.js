@@ -59,7 +59,7 @@ export default function Home() {
         <div style={{width:"100%",marginTop:"60px"}}>
           {d=="2"&&
           <div>
-            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Hizmetlerimizden faydalanmaya devam etmek için lütfen en kısa zamanda abonelik ücretinizi ödeyiniz. Zaten ödeme yaptıysanız bu mesajı dikkate almayınız.</p>
+            <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Hizmetlerimizden faydalanmaya devam edebilmek için lütfen en kısa zamanda abonelik ücretinizi ödeyiniz. Zaten ödeme yaptıysanız bu mesajı dikkate almayınız.</p>
             <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Ödemelerinizi aşağıda bulunan iban numaralarına yapabilirsiniz.</p>
             <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Ziraat Bankası</p>
             <p style={{color:"red",fontSize:"medium",textAlign:"center"}}>Deniz ARLI</p>

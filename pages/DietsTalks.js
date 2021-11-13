@@ -99,7 +99,7 @@ export default function DiyetsTalks() {
         }
     }
     function ileric() {
-        if(s!=18){
+        if(s!=19){
             sets(s+1);
         }
     }

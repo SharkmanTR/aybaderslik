@@ -2,6 +2,7 @@ import cookies from 'js-cookie'
 import styles from '../components/Default/login.module.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import Footer from '../components/footer';
 
 var md5 = require('md5');
 
@@ -19,15 +20,17 @@ export default function GirisYap(ls){
 
         }else if(ll=="1"){
             window.location.href='/';
+        }else if(ll="3"){
+
         }
     })
     return(
-        
         <div>
-                <Head>
-                    <title>AYBA Derslik | Giriş Yap</title>
-                    <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
-                </Head>
+            <Head>
+                <title>AYBA Derslik | Giriş Yap</title>
+                <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
+            </Head>
+            <div>
                 <div className={styles.login}>
                     <input id="txtemail" type="text" placeholder="E-posta" className={styles.inputlgn} />
                     <input id="txtsifre" type="password" placeholder="Şifre"  className={styles.inputlgn} />
@@ -39,6 +42,10 @@ export default function GirisYap(ls){
                         <p className={styles.a2}>Şifremi Unuttum</p>
                     </div>
                 </div>
+            </div>
+            <Footer>
+                
+            </Footer>
         </div>
     )
     async function btngirisclick(){
@@ -65,7 +72,7 @@ export default function GirisYap(ls){
             const as = res.map(r=>r.adsoyad);
             const hh = res.map(r=>r.hoca);
             const dd=res.map(r=>r.durum);
-            cookies.set("lg","1",{expires:24*90});
+            cookies.set("log","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});
             cookies.set("pass",sf,{expires:24*90});
@@ -100,6 +107,9 @@ export default function GirisYap(ls){
             cookies.set("hoca",hh,{expires:24*90});
             cookies.set("durum",dd,{expires:24*90});
             setl("1");
+        }else if (lng=="3"){
+            setl("0");
+            alert("Ödemeniz alınamadı. Ödemenizin alınmasının ardından hizmetlerimizden faydalanmaya devam edebileceksiniz. Ziraat Bankası, TR 2500 0100 0211 5044 8987 5001 numaralı, Deniz ARLI'nın hesabına ödemeniz gerçekleştikten sonra hesabınız erişime açılacaktır. Eğer bir hata olduğunu düşünüyorsanız lütfen bizimle iletişime geçiniz.");
         }
         else{
             alert("Giriş başarısız.");

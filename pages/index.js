@@ -32,7 +32,7 @@ if(tema=="Default"){
   tc="#dadada";
 }
 export default function Home() {
-  const l = cookies.get("lg")||"0";
+  const l = cookies.get("log")||"0";
   const d= cookies.get("durum");
   useEffect(()=>{
     if(l=="0"){

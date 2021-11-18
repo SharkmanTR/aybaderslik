@@ -47,7 +47,7 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
     konular1 = konular1 || ""
     const s= cookies.get("sinif");
     const u = cookies.get("uni");
-    const l=cookies.get("lg")||"0";
+    const l=cookies.get("log")||"0";
     const [t,sett]=useState(styles);
     useEffect(()=>{
         if(tema=="Default"){

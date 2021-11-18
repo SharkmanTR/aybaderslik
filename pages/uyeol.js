@@ -5,12 +5,13 @@ import brkd from '../public/img/barkod.png';
 import { useEffect } from "react";
 import Head from 'next/head';
 import cookies from 'js-cookie';
+import Footer from '../components/footer';
 
 
 var md5 = require('md5');
 var dn=moment().format("YYYY");
 export default function UyeOl() {
-    const l=cookies.get("lg")||"0";
+    const l=cookies.get("log")||"0";
     useEffect(()=>{
         if(l=="1"){
             window.location.href="/";
@@ -122,7 +123,6 @@ Eğer beslenme ve diyetetik bölümünden değilseniz, ücretini ödemiş olsan�
                 <p className={styles.h2}>16. AYBA&quot;dan sadece beslenme ve diyetetik lisans ve yüksek lisans öğrencileri, diyetisyenler ve beslenme ve diyetetik bölümü bünyesinde olan öğretim görevlileri, öğretim üyeleri ve araştırma görevlileri faydalanabilir. Bu kişiler dışında abonelik almak isteyen kişilerin hesapları aktif edilmeyerek erişime kısıtlanacaktır.</p>
                 <p className={styles.h2}>17. İşbu &quot;Kullanım Şartları&quot; 03.08.2021 tarihinden itibaren geçerli olup 17 maddeden oluşmaktadır.</p>
             </div>
-            
         </div>
     )
     async function kayitc() {

@@ -19,7 +19,7 @@ export default function Footer() {
                 <p className={styles.txt}>|</p>
                 <p className={styles.lnk} onClick={instaclick}>
                     <img src="/icons/send.png" className={styles.img}></img>
-                    Instagramasdasd
+                    Instagram
                 </p>
 
             </div>

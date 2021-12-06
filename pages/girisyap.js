@@ -9,7 +9,7 @@ var md5 = require('md5');
 
 
 export default function GirisYap(ls){
-    const l = cookies.get('lg');
+    const l = cookies.get('log');
     const d =cookies.get('durum');
     const [ll,setl]=useState("x");
     useEffect(()=>{
@@ -96,7 +96,7 @@ export default function GirisYap(ls){
             const as = res.map(r=>r.adsoyad);
             const hh = res.map(r=>r.hoca);
             const dd=res.map(r=>r.durum);
-            cookies.set("log","1",{expires:24*90});
+            cookies.set("lg","1",{expires:24*90});
             cookies.set("id",id,{expires:24*90});
             cookies.set("email",em,{expires:24*90});
             cookies.set("pass",sf,{expires:24*90});

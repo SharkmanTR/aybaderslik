@@ -42,7 +42,7 @@
     padding: 5px;
 }
 .menu{
-    width: auto;
+    width: 250px;
     height: auto;
     padding: 10px;
     margin-top: 50px;
@@ -74,7 +74,7 @@
 }
 .temamenu{
     background-color: darkslateblue;
-    width: auto;
+    width: 250px;
     height: auto;
     padding: 10px;
     margin-top: 50px;

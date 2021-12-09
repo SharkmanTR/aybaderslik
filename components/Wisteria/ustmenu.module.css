@@ -4,6 +4,7 @@
     background-color: #9b59b6;
     position: fixed;
     top:0;
+    z-index: 100;
 }
 .lnk{
     width: 10%;

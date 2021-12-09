@@ -1,4 +1,54 @@
 .main{
     width: 100%;
-    
+    margin-top: 5%;
+    object-position: center;
+}
+.col{
+    width: 100%;
+    height: 100px;
+    margin-top: 5%;
+    position: relative;
+    background-color: transparent;
+    text-align: center;
+    color: black;
+    font-size: medium;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    object-position: center;
+}
+.btn1{
+    width: 100px;
+    border:0;
+    background-color: #F0F0F3;
+    text-align: center;
+    height: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;
+    cursor: pointer;
+    color: black;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow:
+    -10px -10px 30px #fff,
+    10px 10px 30px #aeaec040,
+    inset -10px -10px 10px #aeaec025,
+    inset 10px 10px 10px #fff;
+    margin: auto;
+}
+.btn2{
+    width: 100px;
+    border:0;
+    background-color: #F0F0F3;
+    text-align: center;
+    height: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: medium;
+    cursor: pointer;
+    color: black;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow:
+    -10px -10px 30px #fff,
+    10px 10px 30px #aeaec040,
+    inset -10px -10px 10px #aeaec025,
+    inset 10px 10px 10px #fff;
 }

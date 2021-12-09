@@ -35,22 +35,43 @@ const db =[
   { id:"20", k:"Accompany (fiil)", a:"Eşlik etmek, refakat etmek", oc:"With the exception of pediatric or incapacitated patients, we advise the visitor/guardian not to accompany the patient after check-in at the facility during the preoperative stage."},
   { id:"21", k:"Badly (zarf)", a:"Kötü bir biçimde, ağır bir biçimde, feci bir biçimde", oc:"She was badly injured in a car accident."},
   { id:"22", k:"Baffle (fiil)", a:"Şaşırtmak, şaşkına çevirmek", oc:"After being diagnosed with Alzheimer nearly 15 years ago, she continues to baffle doctors as she battles the disease."},
-  { id:"23", k:"Ban (fiil / isim)", a:"Yasaklamak, yasak", oc:"In this research, we analyze the effect of this smoking ban on the outcomes of their pregnancies."},
+  { id:"23", k:"Ban (fiil/isim)", a:"Yasaklamak, yasak", oc:"In this research, we analyze the effect of this smoking ban on the outcomes of their pregnancies."},
   { id:"24", k:"Basically (zarf)", a:"Temelde, esas olarak", oc:"The symptoms of both diseases are basically the same."},
-  { id:"25", k:"Battle (fiil / isim)", a:"Savaşmak, mücadele etmek, savaş, mücadele", oc:"However, during and after the battle of COVID-19, countries must take more serious steps to strengthen and improve their healthcare system capacity in order to be well-prepared for such crises in the future."},
+  { id:"25", k:"Battle (fiil/isim)", a:"Savaşmak, mücadele etmek, savaş, mücadele", oc:"However, during and after the battle of COVID-19, countries must take more serious steps to strengthen and improve their healthcare system capacity in order to be well-prepared for such crises in the future."},
   { id:"26", k:"Call for (fiil)", a:"Çağrıda bulunmak, gerektirmek, istemek", oc:"UN health agency calls for “discipline” as highly infectious Delta variant races through region."},
   { id:"27", k:"Call off (fiil)", a:"İptal etmek", oc:"She had to call of her travel because of the illness."},
   { id:"28", k:"Candidate (isim)", a:"Aday", oc:"Nine candidate vaccines are currently being supported by Coalition for Epidemic Preparedness Innovations (CEPI); eight of which are currently in clinical trials."},
   { id:"29", k:"Capable (of) (sıfat)", a:"Yetenekli, muktedir", oc:"Systems must be capable of providing older person-centred and integrated care."},
-  { id:"30", k:"Cardiovascular (sıfat)", a:"Kalp ve damarlarla ilgili, kardiovasküler", oc:"Excess dietary sodium intake increases blood pressure and consequently increases the risk of cardiovascular diseases."}
+  { id:"30", k:"Cardiovascular (sıfat)", a:"Kalp ve damarlarla ilgili, kardiovasküler", oc:"Excess dietary sodium intake increases blood pressure and consequently increases the risk of cardiovascular diseases."},
+  { id:"31", k:"Damage (fiil/isim)", a:"Zarar vermek, zarar, hasar", oc:"Social isolation and loneliness shorten older people’s lives and damage their mental and physical health and quality of life."},
+  { id:"32", k:"Deadline (isim)", a:"Son teslim tarihi", oc:"To come to the conclusion, the deadline for our final report is the 74th World Health Assembly in May 2021."},
+  { id:"33", k:"Deafness (isim)", a:"Sağırlık", oc:"Meningitis is a killer disease affecting mostly children. Fever, nausea and headache can progress rapidly to cause serious neurological damage, deafness, coma and death."},
+  { id:"34", k:"Deal with (fiil)", a:"Baş etmek, üstesinden gelmek, ele almak, yönetmek", oc:"In addition, developing skills among adolescents to deal with stress, manage conflict and develop healthy relationships will be undertaken."},
+  { id:"35", k:"Debate (fiil/isim)", a:"Tartışmak, tartışma", oc:"Overuse and underuse of caesarean section are a current global concern and the focus of debates and research."},
+  { id:"36", k:"Ease (fiil)", a:"Azalmak, azaltmak, gidermek, rahatlatmak, rahatlamak, dindirmek", oc:"A number of organizations are looking for solutions to ease the plight of the poor suffering from tropical diseases."},
+  { id:"37", k:"Effective (sıfat)", a:"Etkili", oc:"Oxytocin, however, requires special cool storage conditions to remain effective and is unstable at room temperature."},
+  { id:"38", k:"Efficiency (isim)", a:"Yeterlik, verimlilik, verim, liyakat, etkinlik", oc:"This also brings benefits by improving the efficiency of development programmes and reducing both development costs and time."},
+  { id:"39", k:"Elderly (sıfat)", a:"Yaşlı", oc:"This is enough to protect the most at-risk population groups: health workers, the elderly and those with underlying health conditions."},
+  { id:"40", k:"Elevate (fiil)", a:"Yükseltmek, kaldırmak", oc:"While waiting for help, move the person to a cool place, put him or her in a horizontal position and elevate legs and hips, remove clothing and initiate external cooling."},
+  { id:"41", k:"Facilitate (fiil)", a:"Kolaylaştırmak, yardım etmek, hafifletmek, rahatlatmak", oc:"In some instances, vaccination cards are also used to facilitate international travel, for example in the case of yellow fever, where a vaccination certificate may be required by some countries as a condition of entry."},
+  { id:"42", k:"Facility (isim)", a:"Tesis", oc:"By establishing centralized services in a cancer facility or hospital, using breast cancer as a model, treatment for breast cancer may be optimized while improving management of other cancers."},
+  { id:"43", k:"Faint (fiil)", a:"Bayılmak", oc:"When someone faints, make sure that the airway is clear and check for breathing."},
+  { id:"44", k:"Far-sighted (sıfat)", a:"Hipermetrop", oc:"She wears glasses because she is far-sighted."},
+  { id:"45", k:"Fasting (isim)", a:"Oruç, açlık", oc:"Almost 10% of the world’s adult population has diabetes, measured by elevated fasting blood glucose (≥126mg/dl)."},
+  { id:"46", k:"Fatal (sıfat)", a:"Ölümcül", oc:"Chronic schistosomiasis may affect people’s ability to work and is fatal in some cases."},
+  { id:"47", k:"Fatigue (isim)", a:"Yorgunluk, bitkinlik, tükenmişlik", oc:"Severe hypertension can cause fatigue, nausea, vomiting, confusion, anxiety, chest pain, and muscle tremors."},
+  { id:"48", k:"Feature (isim)", a:"Özellik, nitelik", oc:"Tetanus is diagnosed on the basis of clinical features and does not require laboratory confirmation."},
+  { id:"49", k:"Feasible (sıfat)", a:"Uygun, mümkün, uygulanabilir", oc:"All parties agreed that this tool is feasible and practical to increase vaccination coverage in inaccessible dog populations."},
+  { id:"50", k:"Fever (isim)", a:"Ateş", oc:"Its clinical manifestations include irregular bouts of fever, weight loss and anemia."},
 ];
+
 var tema = cookies.get("tema"||"Default");
 
 
 export default function Ingilizce(){
-    const [k1,kset]=useState(db[Math.floor(Math.random()*30)].k);
-    const [a1,aset]=useState(db[Math.floor(Math.random()*30)].a);
-    const [oc1,ocset]=useState(db[Math.floor(Math.random()*30)].oc);
+    const [k1,kset]=useState(db[Math.floor(Math.random()*50)].k);
+    const [a1,aset]=useState(db[Math.floor(Math.random()*50)].a);
+    const [oc1,ocset]=useState(db[Math.floor(Math.random()*50)].oc);
     
     const [t,sett]=useState(styles);
     useEffect(()=>{
@@ -84,7 +105,7 @@ export default function Ingilizce(){
         </div>
     )
     function clickrandom(){
-        let x = Math.floor(Math.random()*30);
+        let x = Math.floor(Math.random()*50);
         db.forEach(function(i){
             if(x==i["id"]){
                 kset(i["k"]);

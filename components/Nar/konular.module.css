@@ -19,6 +19,9 @@
     border-top-right-radius: 20px;
     background-color: white;
     padding: 10px;
+    position:sticky;
+    top:50px;
+    left: 0;
 }
 .konu{
     width: 100%;

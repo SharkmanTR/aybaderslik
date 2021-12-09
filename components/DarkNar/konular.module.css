@@ -14,11 +14,13 @@
 }
 .sinif{
     width: calc 100%;
-
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     background-color: #C0392B;
     padding: 10px;
+    position:sticky;
+    top:50px;
+    left: 0;
 }
 .konu{
     width: 100%;

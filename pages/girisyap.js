@@ -32,14 +32,14 @@ export default function GirisYap(ls){
             </Head>
             <div>
                 <div className={styles.login}>
-                    <input id="txtemail" type="text" placeholder="E-posta" className={styles.inputlgn} />
+                    <input id="txtemail" type="email" placeholder="E-posta" className={styles.inputlgn} />
                     <input id="txtsifre" type="password" placeholder="Şifre"  className={styles.inputlgn} />
                     <button className={styles.btnlogin} onClick={btngirisclick}>
                         Giriş Yap
                     </button>
                     <div className={styles.foot}>
                         <p className={styles.a1} onClick={uyeolc}>Üye Ol</p>
-                        <p className={styles.a2}>Şifremi Unuttum</p>
+                        <p className={styles.a2} style={{display:'none'}}>Şifremi Unuttum</p>
                     </div>
                 </div>
             </div>

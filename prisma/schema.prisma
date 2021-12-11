@@ -17,7 +17,7 @@ model AybaUsers {
   adsoyad String
   dtarihi String 
   tel String 
-  tc      String
+  tc      String @unique
   barkod  String
   ono String 
   tema    String

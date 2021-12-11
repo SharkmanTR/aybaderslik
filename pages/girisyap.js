@@ -23,7 +23,7 @@ export default function GirisYap(ls){
         }else if(ll="3"){
 
         }
-    })
+    });
     return(
         <div>
             <Head>
@@ -39,7 +39,7 @@ export default function GirisYap(ls){
                     </button>
                     <div className={styles.foot}>
                         <p className={styles.a1} onClick={uyeolc}>Üye Ol</p>
-                        <p className={styles.a2} style={{display:'none'}}>Şifremi Unuttum</p>
+                        <p className={styles.a2} onClick={fpclick}>Şifremi Unuttum</p>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,9 @@ export default function GirisYap(ls){
     function uyeolc() {
         window.location.href='/uyeol';
     }
-
+    function fpclick(){
+        window.location.href="/sifremiunuttum";
+    }
 }
 
 

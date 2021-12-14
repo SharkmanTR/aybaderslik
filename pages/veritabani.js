@@ -156,7 +156,7 @@ export default function VeriTabani({bes}){
                             </div>
                         ))}
                         <hr></hr>
-
+                        
                     </div>
                 </div>
             </div>

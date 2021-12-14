@@ -13,6 +13,7 @@ import stylesDay from '../components/Day/diyetler.module.css';
 import UstMenu from '../components/ustmenu';
 import moment from 'moment';
 import { useEffect, useState} from "react";
+import Loading from "../components/loading";
 import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
@@ -45,6 +46,7 @@ export default function Diyetler(){
     const [t,sett]=useState(styles);
     const [dyt,dddset]=useState([]);
     const l = cookies.get("log")||"0";
+    const [load,setload]=useState("0");
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -87,6 +89,9 @@ export default function Diyetler(){
             pref={"diyetler"}>
 
             </UstMenu>
+            {load=="1"&&
+            <Loading></Loading>
+            }
             {dyt.map(d=>(
                 <div key={d.id}>
                     <div className={t.mid} >
@@ -341,6 +346,7 @@ function clickfavicon(){
     }
 }
 async function btnfav(){
+    setload("1");
     var i = event.srcElement.value;
     const res = fetch('./api/diyetfav',{
         method:'POST',
@@ -352,4 +358,5 @@ async function btnfav(){
     });
     document.getElementById("inputfavimg"+i).style.display="none";
     document.getElementById("btnfavimg"+i).style.display="none";
+    setload("0");
 }

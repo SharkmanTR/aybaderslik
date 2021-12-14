@@ -302,7 +302,7 @@ export default function StajDefterim({dyt}){
         </div>
     )
 }
-export async function getServerSideProps(){
+export async function getStaticProps(){
     const prisma = new PrismaClient();
     const dyt = await prisma.aybaDefter.findMany({
         orderBy:{id:'desc'},

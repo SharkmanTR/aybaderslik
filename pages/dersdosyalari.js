@@ -38,7 +38,7 @@ if(tema=="Default"){
     tc="#EDF6F5";
 }else {
     tc="#dadada";
-  }
+}
 
 export default function DersDosyalari({konular4,konular3,konular2,konular1}){
     konular4 = konular4 || "";

@@ -105,6 +105,14 @@ export default function UstMenu({pref}){
                         Formüller
                     </button >
                 </div>
+                <div className={t.menuitem}>
+                    <Image src="/icons/database.png" width={'32px'} height={'32px'} alt="" onClick={fveritabani}>
+                    
+                    </Image>
+                    <button className={t.menubtn} onClick={fveritabani}>
+                        Besin Veri Tabanı
+                    </button >
+                </div>
                 <div className={t.menuitem} style={{display:"none"}}>
                     <Image src="/icons/devamsizlik.png" width={'32px'} height={'32px'} alt="">
                     
@@ -258,6 +266,9 @@ export default function UstMenu({pref}){
     }
     function fstajdefteri(){
         window.location.href='/stajdefterim';
+    }
+    function fveritabani() {
+        window.location.href="/veritabani";
     }
     function tdefaultc(){
         cookies.set("tema","Default",{expires:24*90});

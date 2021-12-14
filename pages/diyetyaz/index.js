@@ -13,6 +13,7 @@ import {PrismaClient} from '@prisma/client';
 import cookies from 'js-cookie';
 import DiyetGonder from '../diyetgon';
 import { useState, useEffect } from 'react';
+import Loading from '../../components/loading';
 import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
@@ -61,7 +62,7 @@ export default function DiyetYaz({hocalar}){
     const [xmey,setmey]=useState();
     const [xyag,setyag]=useState();
     const [xytoh,setytoh]=useState();
-
+    const [load,setload]=useState("0");
     const [t,sett]=useState(styles);
     useEffect(()=>{
         if(l=="0"){
@@ -102,7 +103,9 @@ export default function DiyetYaz({hocalar}){
             </style>
             <UstMenu
             pref={"diyetyaz"}></UstMenu>
-
+            {load=="1"&&
+            <Loading></Loading>
+            }
             <div id="divres">
 
                 {ddg!="0"&&
@@ -1609,6 +1612,7 @@ export default function DiyetYaz({hocalar}){
             if(r15!=""){ara3o=ara3o+r15+"<br>"};
         }
         setara3(ara3o);
+        setload("1");
         const gon = await fetch('../api/diyetgon',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
@@ -1649,6 +1653,7 @@ export default function DiyetYaz({hocalar}){
 
         });
         const yan = await gon.json();
+        setload("0");
         alert(yan["id"]+" numaralı diyetiniz başarıyla gönderilmiştir.")
         window.scrollTo(0,0);
     }
@@ -1816,6 +1821,7 @@ export default function DiyetYaz({hocalar}){
             if(r15!=""){ara3o=ara3o+r15+"<br>"};
         }
         setara3(ara3o);
+        setload("1");
         const gon = await fetch('../api/defgon',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
@@ -1862,6 +1868,7 @@ export default function DiyetYaz({hocalar}){
 
         });
         const yan = await gon.json();
+        setload("1");
         alert(yan["id"]+ " numaralı diyetiniz staj defterinize kaydedilmiştir.");
         window.scrollTo(0,0);
     }

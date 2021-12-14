@@ -2,6 +2,7 @@ import cookies from 'js-cookie'
 import styles from '../components/Default/login.module.css';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import Loading from '../components/loading'
 import Footer from '../components/footer';
 
 var md5 = require('md5');
@@ -12,6 +13,7 @@ export default function GirisYap(ls){
     const l = cookies.get('log');
     const d =cookies.get('durum');
     const [ll,setl]=useState("x");
+    const [load,setload]=useState("0");
     useEffect(()=>{
         
         if(ll=="x"){
@@ -30,6 +32,9 @@ export default function GirisYap(ls){
                 <title>AYBA Derslik | Giriş Yap</title>
                 <link rel="shourtcut icon" href={`/ico/Default.ico`}></link>
             </Head>
+            {load=="1"&&
+            <Loading></Loading>
+            }
             <div>
                 <div className={styles.login}>
                     <input id="txtemail" type="email" placeholder="E-posta" className={styles.inputlgn} />
@@ -49,6 +54,7 @@ export default function GirisYap(ls){
         </div>
     )
     async function btngirisclick(){
+        setload("1");
         var e = document.getElementById("txtemail").value;
         var s =md5(document.getElementById("txtsifre").value);
 
@@ -114,10 +120,11 @@ export default function GirisYap(ls){
         else{
             alert("Giriş başarısız.");
         }
-
+        setload("0");
         return{
             props:{ls}
         }
+        
     }
     function uyeolc() {
         window.location.href='/uyeol';

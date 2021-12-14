@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import UstMenu from '../components/ustmenu';
 import styles from '../components/Default/veritabani.module.css';
 import stylesDark from '../components/DefaultDark/veritabani.module.css';
@@ -66,6 +65,9 @@ export default function VeriTabani({bes}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
+        if(l=="0"){
+            
+        }
     })
     const[load,setload]=useState("0");
     const [src,setsrc]=useState("0");
@@ -118,9 +120,9 @@ export default function VeriTabani({bes}){
                     <div className={t.divsearch2}>
                         <div className={t.srclist}>
                             {bes3['foods'].map(b3=>(
-                                <div className={t.divsrclist}>
-                                    <p id={b3.fdcId} className={t.psrc} onClick={besinclick}>{b3.description}</p>
-                                    <hr></hr>
+                                <div key={b3.fdcId+"div1"} className={t.divsrclist}>
+                                    <p key={b3.fdcId+"xxx"} id={b3.fdcId} className={t.psrc} onClick={besinclick}>{b3.description}</p>
+                                    <hr key={b3.fdcId+"asdasd"}></hr>
                                 </div>
                             ))}
                         </div>
@@ -144,12 +146,12 @@ export default function VeriTabani({bes}){
                         <p className={t.p2}>İçerik</p>
                         <hr></hr>
                         {bes4['foodNutrients'].map(x4=>(
-                            <div className={t.row2}>
-                                <div className={t.col2}>
-                                    <p className={t.p2}>{x4['nutrient']['name']}</p>
+                            <div key={"xb"+x4['nutrient']['name']} className={t.row2}>
+                                <div key={"ys"+x4['nutrient']['name']} className={t.col2}>
+                                    <p key={"zg"+x4['nutrient']['name']} className={t.p2}>{x4['nutrient']['name']}</p>
                                 </div>
-                                <div className={t.col2}>
-                                    <p className={t.p2}>{(m/100)*x4.amount||""} {x4['nutrient']['unitName']}</p>
+                                <div key={"www"+x4['nutrient']['name']} className={t.col2}>
+                                    <p key={"qi"+x4['nutrient']['name']} className={t.p2}>{(m/100)*x4.amount||""} {x4['nutrient']['unitName']}</p>
                                 </div>
                             </div>
                         ))}
@@ -169,33 +171,33 @@ export default function VeriTabani({bes}){
                                 </div>
                             </div>
                 {bes2['foods'].map(b2=>(
-                    <div>
-                        <div className={t.baslik}>
-                            <div className={t.baslik1}>
-                                <p id={b2.fdcId} className={t.pbaslik} onClick={divclick2}>{b2.description}</p>
+                    <div key={"mdf"+b2.fdcId}>
+                        <div key={"ahd"+b2.fdcId} className={t.baslik}>
+                            <div key={"bqwer"+b2.fdcId}  className={t.baslik1}>
+                                <p key={"csg"+b2.fdcId}  id={b2.fdcId} className={t.pbaslik} onClick={divclick2}>{b2.description}</p>
                             </div>
-                            <div id={"divlist2"+b2.fdcId} className={t.list} style={{display:'none'}}>
-                                <div className={t.row}>
-                                    <div className={t.col}>
-                                        <p className={t.p}>Bileşen</p>
+                            <div key={"dsdf"+b2.fdcId}  id={"divlist2"+b2.fdcId} className={t.list} style={{display:'none'}}>
+                                <div key={"ead"+b2.fdcId}  className={t.row}>
+                                    <div key={"fwer"+b2.fdcId}  className={t.col}>
+                                        <p key={"gsdg"+b2.fdcId}  className={t.p}>Bileşen</p>
                                     </div>
-                                    <div className={t.col}>
-                                        <p className={t.p}>Miktar</p>
+                                    <div key={"had"+b2.fdcId}  className={t.col}>
+                                        <p key={"iqwe"+b2.fdcId}  className={t.p}>Miktar</p>
                                     </div>
-                                    <div className={t.col}>
-                                        <p className={t.p}>Birim</p>
+                                    <div key={"jqwr"+b2.fdcId}  className={t.col}>
+                                        <p  key={"kasd"+b2.fdcId} className={t.p}>Birim</p>
                                     </div>
                                 </div>
                                 {b2['foodNutrients'].map(z2=>(
-                                    <div className={t.row}>
-                                        <div className={t.col}>
-                                            <p className={t.p}>{z2.nutrientName}</p>
+                                    <div key={"asdfsd"+z2.nutrientName} className={t.row}>
+                                        <div key={"bad"+z2.nutrientName} className={t.col}>
+                                            <p key={"cfgad"+z2.nutrientName} className={t.p}>{z2.nutrientName}</p>
                                         </div>
-                                        <div className={t.col}>
-                                            <p className={t.p}>{z2.value}</p>
+                                        <div key={"dqwe"+z2.nutrientName} className={t.col}>
+                                            <p key={"eaf"+z2.nutrientName} className={t.p}>{z2.value}</p>
                                         </div>
-                                        <div className={t.col}>
-                                            <p className={t.p}>{z2.unitName}</p>
+                                        <div key={"ipo"+z2.nutrientName} className={t.col}>
+                                            <p key={"absu"+z2.nutrientName} className={t.p}>{z2.unitName}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -210,40 +212,39 @@ export default function VeriTabani({bes}){
                         <div className={t.mid}>
                             
                         {bes.map(b=>(
-                            <div>
-                                <div className={t.baslik}>
-                                    <div className={t.baslik1}>
-                                        <p id={b.fdcId} className={t.pbaslik} onClick={divclick}>{b.description}</p>
+                            <div key={"1a"+b.fdcId}>
+                                <div key={"2s"+b.fdcId} className={t.baslik}>
+                                    <div key={"3d"+b.fdcId} className={t.baslik1}>
+                                        <p key={"4a"+b.fdcId} id={b.fdcId} className={t.pbaslik} onClick={divclick}>{b.description}</p>
                                     </div>
             
-                                    <div id={"divlist"+b.fdcId} className={t.list} style={{display:'none'}}>
-                                        <div className={t.row}>
-                                            <div className={t.col}>
-                                                <p className={t.p}>Bileşen</p>
+                                    <div key={"5f"+b.fdcId} id={"divlist"+b.fdcId} className={t.list} style={{display:'none'}}>
+                                        <div key={"6g"+b.fdcId} className={t.row}>
+                                            <div key={"7w"+b.fdcId} className={t.col}>
+                                                <p key={"8q"+b.fdcId} className={t.p}>Bileşen</p>
                                             </div>
-                                            <div className={t.col}>
-                                                <p className={t.p}>Miktar</p>
+                                            <div key={"9g"+b.fdcId} className={t.col}>
+                                                <p key={"10h"+b.fdcId} className={t.p}>Miktar</p>
                                             </div>
-                                            <div className={t.col}>
-                                                <p className={t.p}>Birim</p>
+                                            <div key={"11j"+b.fdcId} className={t.col}>
+                                                <p key={"12k"+b.fdcId} className={t.p}>Birim</p>
                                             </div>
                                         </div>
                                         {b['foodNutrients'].map(z=>(
-                                            <div className={t.row}>
-                                                <div className={t.col}>
-                                                    <p className={t.p}>{z.name}</p>
+                                            <div key={"au"+z.name} className={t.row}>
+                                                <div key={"br"+z.name} className={t.col}>
+                                                    <p key={"c2"+z.name} className={t.p}>{z.name}</p>
                                                 </div>
-                                                <div className={t.col}>
-                                                    <p className={t.p}>{z.amount}</p>
+                                                <div key={"d4"+z.name} className={t.col}>
+                                                    <p key={"e6"+z.name} className={t.p}>{z.amount}</p>
                                                 </div>
-                                                <div className={t.col}>
-                                                    <p className={t.p}>{z.unitName}</p>
+                                                <div key={"fw"+z.name} className={t.col}>
+                                                    <p key={"gm"+z.name} className={t.p}>{z.unitName}</p>
                                                 </div>
-                                        </div>
+                                            </div>
                                         ))
             
                                         }
-            
             
                                     </div>
                                 </div>

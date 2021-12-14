@@ -98,10 +98,10 @@ export default function VeriTabani({bes}){
             <div className={t.divfilter}>
                 <div className={t.divfilter2} >
                     <select id='filtered' className={t.selectfilter} onChange={search}>
-                        <option className={t.optionfilter} value="Foundation">Temel Besinler</option>
-                        <option className={t.optionfilter} value="SR%20Legacy">Standart Referans Alıntıları</option>
-                        <option className={t.optionfilter} value="Survey%20(FNDDS)">Ölçümlenen Besinler</option>
-                        <option className={t.optionfilter} value="Branded">Markalı Yiyecekler</option>
+                        <option className={t.optionfilter} value="Foundation">Temel Besinler(159 besin)</option>
+                        <option className={t.optionfilter} value="SR%20Legacy">Standart Referans Alıntıları(7793 besin)</option>
+                        <option className={t.optionfilter} value="Survey%20(FNDDS)">Ölçümlenen Besinler(7083 besin)</option>
+                        <option className={t.optionfilter} value="Branded">Yiyecek Markaları(378903 besin)</option>
                     </select>
                 </div>
             </div>
@@ -156,7 +156,7 @@ export default function VeriTabani({bes}){
                             </div>
                         ))}
                         <hr></hr>
-                        
+
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@
 }
 .mid{
   width: 80px;
-  margin-left: 50%;
+  margin-left: calc(50% - 40px);
     height: auto;
     background-color: #dadada;
     object-position: center;

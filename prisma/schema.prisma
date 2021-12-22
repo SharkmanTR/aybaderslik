@@ -75,6 +75,7 @@ model AybaDiyetler {
   oara2   String
   oaksam  String
   oara3   String
+  metre String @default("")
   fav     String
   info String 
   gun String 
@@ -116,6 +117,7 @@ model AybaDefter{
   oaksam  String
   oara3   String
   vakaadi String
+  metre String @default("")
   hastaliklar String
   ilaclar String
   bulgular String
@@ -124,4 +126,5 @@ model AybaDefter{
   gun String
   ay String
   yil String
+ 
 }

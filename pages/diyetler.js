@@ -114,6 +114,23 @@ export default function Diyetler(){
                 <div id={d.id} className={t.divdeg} onClick={divclick}>
                     <p id={d.id} className={t.h2}>{d.topkcal+"-"+d.ycho+" CHO-"+d.ypro+" PRO-"+ d.yyag+" YAĞ"}</p>
                 </div>
+                <div className={t.divdeg}>
+                    {d.metre<45 &&
+                        <div id={"divmetre"+d.id} className={t.divmetre} style={{width:`${d.metre}%`,backgroundColor:'red'}}>
+                            %{d.metre}
+                        </div>
+                    }
+                    {d.metre>=45 && d.metre<75 &&
+                        <div id={"divmetre"+d.id} className={t.divmetre} style={{width:`${d.metre}%`,backgroundColor:'orange'}}>
+                            %{d.metre}
+                        </div>
+                    }
+                    {d.metre>=75 &&
+                        <div id={"divmetre"+d.id} className={t.divmetre} style={{width:`${d.metre}%`,backgroundColor:'green'}}>
+                            %{d.metre}
+                        </div>
+                    }
+                </div>
                 <div id={'divdet'+d.id} className={t.det} style={{display:"none"}}>
                     <div className={t.row1}>
                         <div className={t.col1}>
@@ -325,6 +342,21 @@ export default function Diyetler(){
         }
     
     }
+    async function btnfav(){
+        setload("1");
+        var i = event.srcElement.value;
+        const res = fetch('./api/diyetfav',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                uinfo:document.getElementById("inputfavimg"+i).value,
+                uid:i
+            })
+        });
+        document.getElementById("inputfavimg"+i).style.display="none";
+        document.getElementById("btnfavimg"+i).style.display="none";
+        setload("0");
+    }
 }
 
 function divclick(){
@@ -344,19 +376,4 @@ function clickfavicon(){
         document.getElementById("input"+i).style.display="none";
         document.getElementById("btn"+i).style.display="none";
     }
-}
-async function btnfav(){
-    setload("1");
-    var i = event.srcElement.value;
-    const res = fetch('./api/diyetfav',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-            uinfo:document.getElementById("inputfavimg"+i).value,
-            uid:i
-        })
-    });
-    document.getElementById("inputfavimg"+i).style.display="none";
-    document.getElementById("btnfavimg"+i).style.display="none";
-    setload("0");
 }

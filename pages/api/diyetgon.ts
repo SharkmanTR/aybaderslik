@@ -38,7 +38,8 @@ export default async function(req: NextApiRequest,res: NextApiResponse){
             oara31,
             ekcho1,
             ekpro1,
-            ekyag1
+            ekyag1,
+            dm1
         }=req.body;
         dytdata={
             uni:uni1,
@@ -73,6 +74,7 @@ export default async function(req: NextApiRequest,res: NextApiResponse){
             ekcho:ekcho1,
             ekpro:ekpro1,
             ekyag:ekyag1,
+            metre:dm1.toString(),
             fav:"0",
             info:"",
             gun:moment().format('DD'),

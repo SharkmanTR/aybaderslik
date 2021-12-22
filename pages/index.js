@@ -19,7 +19,7 @@ if(tema=="Default"){
 }else if (tema=="Wisteria"){
   tc="#f6eafa";
 }else if (tema=="DarkWisteria"){
-  tc="#551868 ";
+  tc="#551868";
 }else if (tema=="Nar"){
   tc="#FFBABA";
 }else if (tema=="DarkNar"){

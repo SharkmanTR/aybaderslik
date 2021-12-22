@@ -79,7 +79,6 @@ export default async function (req:NextApiRequest,res:NextApiResponse) {
             oara2:oara21,
             oaksam:oaksam1,
             oara3:oara31,
-            metre:dm1.toString(),
             vakaadi:vakaadi1,
             hastaliklar:hastaliklar1,
             ilaclar:ilaclar1,

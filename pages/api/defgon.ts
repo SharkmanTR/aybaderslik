@@ -83,6 +83,7 @@ export default async function (req:NextApiRequest,res:NextApiResponse) {
             hastaliklar:hastaliklar1,
             ilaclar:ilaclar1,
             bulgular:bulgular1,
+            metre:dm1,
             servis:servis1,
             info:info1,
             gun:moment().format('DD'),

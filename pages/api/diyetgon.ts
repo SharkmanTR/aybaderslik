@@ -74,7 +74,7 @@ export default async function(req: NextApiRequest,res: NextApiResponse){
             ekcho:ekcho1,
             ekpro:ekpro1,
             ekyag:ekyag1,
-            metre:dm1.toString(),
+            metre:dm1,
             fav:"0",
             info:"",
             gun:moment().format('DD'),

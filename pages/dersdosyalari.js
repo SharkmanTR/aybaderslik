@@ -12,6 +12,7 @@ import stylesNight from '../components/Night/konular.module.css';
 import stylesDay from '../components/Day/konular.module.css';
 import cookies from 'js-cookie';
 import Head from 'next/head';
+import Loading from '../components/loading';
 import { useEffect,useState } from "react";
 
 var tema = cookies.get("tema")||"Default";
@@ -40,16 +41,22 @@ if(tema=="Default"){
     tc="#dadada";
 }
 
-export default function DersDosyalari({konular4,konular3,konular2,konular1}){
-    konular4 = konular4 || "";
-    konular3 = konular3 || "";
-    konular2 = konular2 ||"";
-    konular1 = konular1 || ""
+export default function DersDosyalari(){
     const s= cookies.get("sinif");
     const u = cookies.get("uni");
     const l=cookies.get("log")||"0";
     const [t,sett]=useState(styles);
+    const [konular4,setkonu4]=useState([]);
+    const [konular3,setkonu3]=useState([]);
+    const [konular2,setkonu2]=useState([]);
+    const [konular1,setkonu1]=useState([]);
+    const[konular,setkonu]=useState([]);
+    const [tr,settry]=useState(false);
+    const [load,setload]=useState("0");
     useEffect(()=>{
+        if(l=="0"){
+            window.location.href="/girisyap"
+        }
         if(tema=="Default"){
             sett(styles);
         }else if(tema=="DefaultDark"){
@@ -71,8 +78,8 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-        if(l=="0"){
-            window.location.href="/girisyap"
+        if(tr==false){
+            dosyaget();
         }
     })
     return(
@@ -88,6 +95,9 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
             </style>
             <UstMenu
             pref={"dersdosyalari"}></UstMenu>
+            {load=="1"&&
+            <Loading/>
+            }
             <div>
                 {s>="4" &&
                 <div className={t.main} >
@@ -97,12 +107,15 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                         </div>
                         <div  id="divkonu4" className={t.konu} style={{display:'none'}}>
                             <div className={t.sunum}>
-                                {konular4.map(k4=>(
+                                {konular.map(k4=>(
                                     <div key={k4.id} id={k4.id}>
-                                        <a className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k4.uni+"/"+k4.sinif+"/"+k4.ders+"/"+k4.id+".pdf"} download>{k4.konu}</a>
-                                        
-                                        <p className={t.h3}>{k4.ders}</p>
-                                        <hr></hr>
+                                        {k4.sinif=="4"&&
+                                        <div>
+                                            <a className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k4.uni+"/"+k4.sinif+"/"+k4.ders+"/"+k4.id+".pdf"} download>{k4.konu}</a>                                 
+                                            <p className={t.h3}>{k4.ders}</p>
+                                            <hr></hr>
+                                        </div>
+                                        }
                                     </div>
                                 ))}
                             </div>
@@ -118,11 +131,16 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                         </div>
                         <div  id="divkonu3" className={t.konu} style={{display:'none'}}>
                             <div className={t.sunum}>
-                                {konular3.map(k3=>(
+                                {konular.map(k3=>(
                                     <div key={k3.id} id={k3.id}>
-                                        <a  className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download={k3.konu}>{k3.konu}</a>
-                                        <p  className={t.h3}>{k3.ders}</p>
-                                        <hr></hr>
+                                        {k3.sinif=="3"&&
+                                        <div>
+                                            <a  className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download={k3.konu}>{k3.konu}</a>
+                                            <p  className={t.h3}>{k3.ders}</p>
+                                            <hr></hr>
+                                        </div>
+                                        }
+
                                     </div>
                                 ))}
                             </div>
@@ -138,11 +156,16 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                         </div>
                         <div  id="divkonu2" className={t.konu} style={{display:'none'}}>
                             <div className={t.sunum}>
-                                {konular2.map(k3=>(
+                                {konular.map(k3=>(
                                     <div key={k3.id} id={k3.id}>
-                                        <a  className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download>{k3.konu}</a>
-                                        <p  className={t.h3}>{k3.ders}</p>
-                                        <hr></hr>
+                                        {k3.sinif=="2"&&
+                                        <div>
+                                            <a  className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download>{k3.konu}</a>
+                                            <p  className={t.h3}>{k3.ders}</p>
+                                            <hr></hr>
+                                        </div>
+                                        }
+
                                     </div>
                                 ))}
                             </div>
@@ -158,11 +181,15 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                         </div>
                         <div  id="divkonu1" className={t.konu} style={{display:'none'}}>
                             <div className={t.sunum}>
-                                {konular1.map(k3=>(
+                                {konular.map(k3=>(
                                     <div key={k3.id} id={k3.id}>
-                                        <a  className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download>{k3.konu}</a>
-                                        <p  className={t.h3}>{k3.ders}</p>
-                                        <hr></hr>
+                                        {k3.sinif=="1"&&
+                                        <div>
+                                            <a  className={t.h2} href={"http://aybaderslik.click/dersdosyalari/"+k3.uni+"/"+k3.sinif+"/"+k3.ders+"/"+k3.id+".pdf"} download>{k3.konu}</a>
+                                            <p  className={t.h3}>{k3.ders}</p>
+                                            <hr></hr>
+                                        </div>
+                                        }
                                     </div>
                                 ))}
                             </div>
@@ -172,50 +199,24 @@ export default function DersDosyalari({konular4,konular3,konular2,konular1}){
                 }
             </div>
         </div>
-
     )
-}
-export async function getServerSideProps() {
-    const prisma = new PrismaClient();
-    const res4 = await prisma.aybaDersDosyalari.findMany(
-        {
-            where:{
-                uni:cookies.get("uni"),
-                sinif:"4"
-            }
-        }
-    );
-    const res3 = await prisma.aybaDersDosyalari.findMany({
-        where:{
-            uni:cookies.get("uni"),
-            sinif:"3"
-        }
-    });
-    const res2 = await prisma.aybaDersDosyalari.findMany({
-        where:{
-            uni:cookies.get("uni"),
-            sinif:"2"
-        }
-    });
-    const res1 = await prisma.aybaDersDosyalari.findMany({
-        where:{
-            uni:cookies.get("uni"),
-            sinif:"1"
-        }
-    });
-    const konular4= await res4;
-    const konular3 = await res3;
-    const konular2 = await res2;
-    const konular1 = await res1;
-    return{
-        props:{
-            konular4,
-            konular3,
-            konular2,
-            konular1
-        }
+    async function dosyaget() {
+        setload("1");
+        const req4 = await fetch('./api/dersdos',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                xuni:cookies.get('uni'),
+            })
+        });
+        const dos4= await req4.json();
+        setkonu4(dos4);
+        setkonu(dos4);
+        settry(true);
+        setload("0");
     }
 }
+
 function sinifclick4() {
     if(document.getElementById("divkonu4").style.display=="none"){
         document.getElementById("divkonu4").style.display='block';

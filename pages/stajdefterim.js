@@ -12,6 +12,7 @@ import stylesDarkNar from '../components/DarkNar/diyetler.module.css';
 import stylesNight from '../components/Night/diyetler.module.css';
 import stylesDay from '../components/Day/diyetler.module.css';
 import { useEffect, useState } from 'react';
+import Loading from '../components/loading';
 import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
@@ -40,10 +41,16 @@ if(tema=="Default"){
     tc="#dadada";
   }
 
-export default function StajDefterim({dyt}){
+export default function StajDefterim({dyt2}){
     const [t,sett]=useState(styles);
     const l = cookies.get("log")||"0";
+    const [dyt,setdyt]=useState([]);
+    const [tr,settry]=useState(false);
+    const [load,setload]=useState("0");
     useEffect(()=>{
+        if(l=="0"){
+            window.location.href="/girisyap"
+        }
         if(tema=="Default"){
             sett(styles);
         }else if(tema=="DefaultDark"){
@@ -65,8 +72,8 @@ export default function StajDefterim({dyt}){
         }else if (tema=="Day"){
             sett(stylesDay);
         }
-        if(l=="0"){
-            window.location.href="/girisyap"
+        if(tr==false){
+            dytget();
         }
     })
     return(
@@ -82,6 +89,9 @@ export default function StajDefterim({dyt}){
             </style>
             <UstMenu
             pref={"stajdefterim"}></UstMenu>
+            {load=="1"&&
+            <Loading/>
+            }
             <div style={{marginTop:'60px'}}>
             {dyt.map(d=>(
                 <div key={d.id}>
@@ -301,20 +311,20 @@ export default function StajDefterim({dyt}){
             
         </div>
     )
-}
-export async function getStaticProps(){
-    const prisma = new PrismaClient();
-    const dyt = await prisma.aybaDefter.findMany({
-        orderBy:{id:'desc'},
-        where:{
-            uni:cookies.get("uni"||""),
-            ono:cookies.get("ono"||"")
-        }
-    });
-    return{
-        props:{
-            dyt
-        }
+    async function dytget(){
+        setload("1");
+        const def = await fetch('./api/defget',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                xuni:cookies.get('uni'),
+                xono:cookies.get('ono')
+            })
+        });
+        const dyt3 = await def.json();
+        setdyt(dyt3);
+        settry(true);
+        setload("0");
     }
 }
 function divclick(){

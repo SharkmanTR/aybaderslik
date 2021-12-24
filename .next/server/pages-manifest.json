@@ -2,13 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/diyetler": "pages/diyetler.js",
-  "/profil": "pages/profil.js",
-  "/girisyap": "pages/girisyap.js",
-  "/api/logincheck": "pages/api/logincheck.js",
-  "/": "pages/index.js",
   "/dersdosyalari": "pages/dersdosyalari.js",
-  "/diyetyaz": "pages/diyetyaz.js",
-  "/diyetyaz/normal": "pages/diyetyaz/normal.js",
-  "/api/diyetler": "pages/api/diyetler.js"
+  "/ornekmenuler": "pages/ornekmenuler.js",
+  "/": "pages/index.js",
+  "/api/dersdos": "pages/api/dersdos.js"
 }

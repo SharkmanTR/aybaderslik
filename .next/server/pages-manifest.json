@@ -2,8 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/dersdosyalari": "pages/dersdosyalari.js",
-  "/ornekmenuler": "pages/ornekmenuler.js",
   "/": "pages/index.js",
-  "/api/dersdos": "pages/api/dersdos.js"
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/diyetyaz": "pages/diyetyaz.js",
+  "/ornekmenuler": "pages/ornekmenuler.js",
+  "/stajdefterim": "pages/stajdefterim.js",
+  "/api/defget": "pages/api/defget.js"
 }

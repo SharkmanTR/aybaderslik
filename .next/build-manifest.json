@@ -29,15 +29,25 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/dersdosyalari": [
+    "/diyetyaz": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/dersdosyalari.js"
+      "static/chunks/pages/diyetyaz.js"
+    ],
+    "/next/dist/pages/_error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/next/dist/pages/_error.js"
     ],
     "/ornekmenuler": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/ornekmenuler.js"
+    ],
+    "/stajdefterim": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/stajdefterim.js"
     ]
   },
   "ampFirstPages": []

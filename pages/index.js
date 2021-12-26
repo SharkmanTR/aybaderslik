@@ -45,7 +45,9 @@ export default function Home() {
     <div  >
     <style jsx global>
       {`
-      body{background-color: ${tc} ;}
+      body{background-color: ${tc} ;
+      background-image:url(/img/noel.png);
+      background-repeat:repeat-x;}
       `}
     </style>
       <Head>

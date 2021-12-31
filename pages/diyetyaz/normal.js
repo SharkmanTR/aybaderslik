@@ -44,7 +44,7 @@ else if (tema=="Wisteria"){
 }else {
     tc="#dadada";
   }
-export default function NormalDiyet({hocalar}){
+export default function NormalDiyet(){
     const [ddg,setddg]=useState("0");
     const [osabah,setsabah]=useState();
     const [oara1,setara1]=useState();
@@ -66,6 +66,8 @@ export default function NormalDiyet({hocalar}){
     const [t,sett]=useState(styles);
     const [dm,setdm]=useState("1");
     const [rm,setrm]=useState("red")
+    const [htry,setht]=useState(false);
+    const [hocalar,sethocalar]=useState([]);
     useEffect(()=>{
         if(l=="0"){
             window.location.href='/girisyap';
@@ -90,6 +92,9 @@ export default function NormalDiyet({hocalar}){
             sett(stylesNight);
         }else if (tema=="Day"){
             sett(stylesDay);
+        }
+        if(htry==false){
+            hocaget();
         }
     })
     return(
@@ -3348,26 +3353,22 @@ export default function NormalDiyet({hocalar}){
         document.getElementById("yuzy").innerText="%"+yuzy.toFixed(2).toString();
         fmetre();
     }
-}
-
-
-
-export async function getStaticProps(){
-    const u = cookies.get("uni"||"");
-    const prisma = new PrismaClient();
-    const hocalar = await prisma.aybaUsers.findMany({
-        where:{
-            uni:u,
-            hoca:"1"
-        }
-    });
-    
-    return{
-        props:{
-            hocalar
-        }
+    async function hocaget(){
+        setload("1");
+        const hoc=await fetch("../api/hocaget",{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                xuni:cookies.get("uni")
+            })
+        });
+        const hc= await hoc.json();
+        setht(true);
+        sethocalar(hc);
+        setload("0");
     }
 }
+
 
 
 function stilc1(){

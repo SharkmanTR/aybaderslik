@@ -2,13 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/stajdefterim": "pages/stajdefterim.js",
-  "/diyetyaz": "pages/diyetyaz.js",
   "/diyetyaz/normal": "pages/diyetyaz/normal.js",
-  "/api/defgon": "pages/api/defgon.js",
-  "/api/defget": "pages/api/defget.js",
-  "/girisyap": "pages/girisyap.js",
-  "/api/logincheck": "pages/api/logincheck.js",
-  "/": "pages/index.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/api/hocaget": "pages/api/hocaget.js"
 }

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import UstMenu from '/components/ustmenu.js';
+import UstMenu2 from '../components/ustmenu2';
 import cookies from 'js-cookie';
 import Ingilizce from '../components/ingilizce';
 import { useEffect, useState } from 'react';
@@ -44,20 +45,21 @@ export default function Home() {
 
     <div  >
     <style jsx global>
-      {`
-      body{background-color: ${tc} ;
-      background-image:url(/img/noel.png);
-      background-repeat:repeat-x;}
-      `}
+    {`
+    body{background-color: ${tc} ;
+    background-image:url(/img/noel.png);
+    background-repeat:repeat-x;
+    background-size:contain;}
+    `}
     </style>
       <Head>
         <title>AYBA Derslik</title>
         <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
       </Head>
       <div>
-        <UstMenu
-        pref={""}
-        ></UstMenu>
+        <UstMenu pref={"/"}>
+        </UstMenu>
+        
         <div style={{width:"100%",marginTop:"60px"}}>
           {d=="2"&&
           <div>
@@ -70,16 +72,7 @@ export default function Home() {
 
           }
         </div>
-        <div style={{width:'100%',height:'500px',marginTop:'50px'}}>
-          <img alt="" src="/img/puzzle.png" onClick={bclick} style={{
-            objectFit:'contain',
-            objectPosition:'center',
-            width:'100%',
-            height:'100%',
-            cursor:'pointer'
-            
-          }}></img>
-        </div>
+
         <div style={{width:'100%',height:'500px',marginTop:'50px'}}>
           <img alt="" src="/dergi/1.png" style={{
             objectFit:'contain',
@@ -99,9 +92,6 @@ export default function Home() {
   )
   function dergic() {
     window.location.href="/DietsTalks";
-  }
-  function bclick() {
-    window.location.href="/bulmaca"
   }
 
 }

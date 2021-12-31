@@ -73,7 +73,7 @@ export default function Search(){
                     ScienceDirect
                 </button>
                 <button className={t.btn} onClick={tf}>
-                    Taylar & Francis
+                    Taylor & Francis
                 </button>
                 <button className={t.btn} onClick={utd}>
                     UpToDate

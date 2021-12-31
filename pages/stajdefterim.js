@@ -15,8 +15,9 @@ import { useEffect, useState } from 'react';
 import Loading from '../components/loading';
 import Head from 'next/head';
 
-var tema = cookies.get("tema"||"Default");
+var tema = cookies.get("tema")||"Default";
 let tc;
+const hoca = cookies.get("hoca")||"0";
 if(tema=="Default"){
     tc="#dadada";
 }else if (tema=="DefaultDark"){
@@ -47,6 +48,7 @@ export default function StajDefterim({dyt2}){
     const [dyt,setdyt]=useState([]);
     const [tr,settry]=useState(false);
     const [load,setload]=useState("0");
+    const [orno,setorno]=useState();
     useEffect(()=>{
         if(l=="0"){
             window.location.href="/girisyap"
@@ -92,6 +94,13 @@ export default function StajDefterim({dyt2}){
             {load=="1"&&
             <Loading/>
             }
+            {hoca=="1"&&
+                <div className={t.src}>
+                    <input id='inputorno' className={t.srcinput} placeholder='Öğrenci Numarası' onChange={ornoc}></input>
+                    <button className={t.srcbtn} onClick={dytget}>Staj Defterini Getir</button>
+                </div>
+            }
+
             <div style={{marginTop:'60px'}}>
             {dyt.map(d=>(
                 <div key={d.id}>
@@ -313,18 +322,36 @@ export default function StajDefterim({dyt2}){
     )
     async function dytget(){
         setload("1");
-        const def = await fetch('./api/defget',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({
-                xuni:cookies.get('uni'),
-                xono:cookies.get('ono')
-            })
-        });
-        const dyt3 = await def.json();
-        setdyt(dyt3);
-        settry(true);
+        if(hoca=="1"){
+            const def = await fetch('./api/defget',{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({
+                    xuni:cookies.get('uni'),
+                    xono:orno
+                })
+            });
+            const dyt3 = await def.json();
+            setdyt(dyt3);
+            settry(true);
+        }else{
+            const def = await fetch('./api/defget',{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({
+                    xuni:cookies.get('uni'),
+                    xono:cookies.get('ono')
+                })
+            });
+            const dyt3 = await def.json();
+            setdyt(dyt3);
+        }
         setload("0");
+        settry(true);
+    }
+    function ornoc(){
+        let s= document.getElementById("inputorno").value;
+        setorno(s);
     }
 }
 function divclick(){

@@ -57,7 +57,7 @@ export default function Home() {
         <link rel="shourtcut icon" href={`/ico/${tema}.ico`}></link>
       </Head>
       <div>
-        <UstMenu pref={"/"}>
+        <UstMenu pref={""}>
         </UstMenu>
         
         <div style={{width:"100%",marginTop:"60px"}}>

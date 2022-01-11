@@ -332,20 +332,23 @@ export default function VeriTabani({bes}){
 
     }
     async function srcchange() {
-
-        const term = document.getElementById('txtsearch').value;
-        const type=document.getElementById("filtered").value
-        if(term!=""){
-            const res = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${term}&dataType=${type}&pageSize=50&api_key=JL0GQs062g2fLRZBNJj9dsEeebbNe4dgscPGOMND`,{
-                method:'GET',
-                headers:{'Content-Type':'application/json'}
-            });
-            const bes3r = await res.json();
-            setbes3(bes3r);
-            setsrc2("1");
-        }else{
-            setsrc2("0");
+        var f = document.getElementById("filtered").value;
+        if(f=="Foundation"){
+            const term = document.getElementById('txtsearch').value;
+            const type=document.getElementById("filtered").value
+            if(term!=""){
+                const res = await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${term}&dataType=${type}&pageSize=50&api_key=JL0GQs062g2fLRZBNJj9dsEeebbNe4dgscPGOMND`,{
+                    method:'GET',
+                    headers:{'Content-Type':'application/json'}
+                });
+                const bes3r = await res.json();
+                setbes3(bes3r);
+                setsrc2("1");
+            }else{
+                setsrc2("0");
+            }
         }
+
 
     }
 

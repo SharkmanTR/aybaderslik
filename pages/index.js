@@ -47,9 +47,6 @@ export default function Home() {
     <style jsx global>
     {`
     body{background-color: ${tc} ;
-    background-image:url(/img/noel.png);
-    background-repeat:repeat-x;
-    background-size:contain;}
     `}
     </style>
       <Head>

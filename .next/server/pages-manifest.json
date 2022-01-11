@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/diyetyaz/normal": "pages/diyetyaz/normal.js",
-  "/api/hocaget": "pages/api/hocaget.js"
+  "/": "pages/index.js",
+  "/veritabani": "pages/veritabani.js"
 }

@@ -63,15 +63,25 @@ const db =[
   { id:"48", k:"Feature (isim)", a:"Özellik, nitelik", oc:"Tetanus is diagnosed on the basis of clinical features and does not require laboratory confirmation."},
   { id:"49", k:"Feasible (sıfat)", a:"Uygun, mümkün, uygulanabilir", oc:"All parties agreed that this tool is feasible and practical to increase vaccination coverage in inaccessible dog populations."},
   { id:"50", k:"Fever (isim)", a:"Ateş", oc:"Its clinical manifestations include irregular bouts of fever, weight loss and anemia."},
+  {id:"51", k:"Garlic (isim)", a:"Sarımsak", oc:"Garlic contains diverse bioactive compounds."},
+  {id:"52", k:"Gender (isim)", a:"Cinsiyet", oc:"The BMI categories for defining overweight vary by age and gender in infants, children and adolescents."},
+  {id:"53", k:"Generous (sıfat)", a:"Cömert", oc:"This problem is being increasingly overcome by generous drug donations from the pharmaceutical industry."},
+  {id:"54", k:"Giant (sıfat)", a:"Dev, çok büyük, kocaman", oc:"Special UNICEF ambassador believes that the Cape Town Measles Declaration indicates a clear path towards a giant achievement in children’s health."},
+  {id:"55", k:"Gland (isim)", a:"Salgı bezi, bez", oc:"In some countries, babies are routinely screened for abnormalities of the thyroid or adrenal glands before discharge from the maternity unit."},
+  {id:"56", k:"Goal (isim)", a:"Amaç, hedef", oc:"The goal of this meeting was to discuss progress and challenges in vaccine development"},
+  {id:"57", k:"Harmful (sıfat)", a:"Zararlı", oc:"Conditions such as diabetes, malnutrition, tobacco use, and harmful use of drugs and alcohol are key drivers for tuberculosis incidence."},
+  {id:"58", k:"Hazard (isim)", a:"Risk, tehlike", oc:"Fresh fruits and vegetables are increasingly being implicated in food safety incidents involving microbiological hazards around the globe."},
+  {id:"59", k:"Head Physician (isim)", a:"Başhekim", oc:"In an information meeting, all eligible participants were informed about the study comprehensively by the head physician."},
+  {id:"60", k:"Hereditary (sıfat)", a:"Kalıtımsal, kalıtsal", oc:"On the absolute risk scale, studies suggest that the presence of certain risk factors, such as excessive body weight, had a substantially higher impact on breast cancer risk if women had a hereditary predisposition to cancer."}
 ];
 
 var tema = cookies.get("tema"||"Default");
 
 
 export default function Ingilizce(){
-    const [k1,kset]=useState(db[Math.floor(Math.random()*50)].k);
-    const [a1,aset]=useState(db[Math.floor(Math.random()*50)].a);
-    const [oc1,ocset]=useState(db[Math.floor(Math.random()*50)].oc);
+    const [k1,kset]=useState(db[Math.floor(Math.random()*60)].k);
+    const [a1,aset]=useState(db[Math.floor(Math.random()*60)].a);
+    const [oc1,ocset]=useState(db[Math.floor(Math.random()*60)].oc);
     
     const [t,sett]=useState(styles);
     useEffect(()=>{
@@ -105,7 +115,7 @@ export default function Ingilizce(){
         </div>
     )
     function clickrandom(){
-        let x = Math.floor(Math.random()*50);
+        let x = Math.floor(Math.random()*60);
         db.forEach(function(i){
             if(x==i["id"]){
                 kset(i["k"]);

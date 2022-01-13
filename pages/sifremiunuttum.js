@@ -19,7 +19,7 @@ export default function SifremiUnuttum() {
 
         }else if(l=="1"){
             window.location.href='/';
-        }else if(l="3"){
+        }else if(l=="3"){
 
         }
         if(lvl=="1"){

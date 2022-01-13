@@ -22,7 +22,7 @@ export default function GirisYap(ls){
 
         }else if(ll=="1"){
             window.location.href='/';
-        }else if(ll="3"){
+        }else if(ll=="3"){
 
         }
     });

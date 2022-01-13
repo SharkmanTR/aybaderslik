@@ -45,9 +45,9 @@ export default function Home() {
 
     <div  >
     <style jsx global>
-    {`
-    body{background-color: ${tc} ;
-    `}
+      {`
+      body{background-color: ${tc} ;}
+      `}
     </style>
       <Head>
         <title>AYBA Derslik</title>

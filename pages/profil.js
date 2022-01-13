@@ -76,6 +76,7 @@ export default function Profil({res}) {
         }else if (tema=="Day"){
             sett(stylesDay);
         }
+        
     })
     return(
         <div className={t.main}>
@@ -83,6 +84,7 @@ export default function Profil({res}) {
             {`
             body{background-color: ${tc} ;}
             #divpimg{background-image: url("/unilogo/${un}.png");}
+            #divunimg{background-image: url("/unilogo/${un}.png");}
             `}
             </style>
             <Head>
@@ -91,27 +93,18 @@ export default function Profil({res}) {
             </Head>
             <UstMenu
             pref={"profil"}></UstMenu>
-            <div className={t.card}>
-                <div id="divpimg" className={t.pimg}>
+            <div className={t.container}>
+                <div className={t.on}>
+                    <div id="divunimg" className={t.unimg}>
 
+                    </div>
+                    <p className={t.unip}>Öğrenci Kartım</p>
                 </div>
-                <div style={{float:"left"}}>
-                    <div className={t.pinf}>
-                        <p className={t.h2}>Ad-Soyad:</p>
-                        <p className={t.h3}>{ad}</p>
-                    </div>
-                    <div className={t.pinf}>
-                        <p className={t.h2}>Numara:</p>
-                        <p className={t.h3}>{no}</p>
-                    </div>
-                    <div className={t.pinf}>
-                        <p className={t.h2}>Sınıf:</p>
-                        <p className={t.h3}>{snf}</p>
-                    </div>
-                    <div className={t.pinf}>
-                        <p className={t.h2}>E-Posta:</p>
-                        <p className={t.h3}>{eml}</p>
-                    </div>
+                <div className={t.arka}>
+                    <p className={t.unip}><b>Ad-Soyad:</b><br></br>{ad}</p>
+                    <p className={t.unip}><b>Öğrenci Numarası:</b><br></br>{no}</p>
+                    <p className={t.unip}><b>Sınfı:</b><br></br>{snf}</p>
+                    <p className={t.unip}><b>E-Posta:</b><br></br>{eml}</p>
                 </div>
             </div>
             <div className={t.card} style={{marginTop:"10px"}}>

@@ -248,7 +248,7 @@ export default function UstMenu({pref}){
         window.location.href='/dersdosyalari';
     }
     function btncikisclick(){
-        cookies.set("log","0",{expires:24*90});
+        cookies.set("login","0",{expires:24*90});
         cookies.set("durum","0",{expires:24*90});
         window.location.href='/girisyap';
     }

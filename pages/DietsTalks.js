@@ -42,7 +42,7 @@ if(tema=="Default"){
 export default function DiyetsTalks() {
     const [t,sett]=useState(styles);
     const [s,sets]=useState(2);
-    const l = cookies.get("log")||"0";
+    const l = cookies.get("login")||"0";
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -85,7 +85,7 @@ export default function DiyetsTalks() {
 
             </UstMenu>
             <div className={t.main}>
-                <img src={`/dergi/${s}.png`} alt="" className={t.img}></img>
+                <img src={`/dergi/${s}.jpg`} alt="" className={t.img}></img>
                 <img src="/icons/flip.png" alt="" className={t.lftbtn} onClick={geric}></img>
                 <img  src="/icons/flip.png" alt="" className={t.rgtbtn} onClick={ileric}></img>
             </div>
@@ -99,7 +99,7 @@ export default function DiyetsTalks() {
         }
     }
     function ileric() {
-        if(s!=19){
+        if(s!=23){
             sets(s+1);
         }
     }

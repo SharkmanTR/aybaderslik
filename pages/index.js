@@ -70,7 +70,7 @@ export default function Home() {
         </div>
 
         <div style={{width:'100%',height:'500px',marginTop:'50px'}}>
-          <img alt="" src="/dergi/1.png" style={{
+          <img alt="" src="/dergi/1.jpg" style={{
             objectFit:'contain',
             objectPosition:'center',
             width:'100%',

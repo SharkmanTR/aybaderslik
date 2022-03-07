@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Loading from '../components/loading'
 import Footer from '../components/footer';
+import { GirisYapFS } from '../utils/girisyapfs';
 
 var md5 = require('md5');
 
 
 
 export default function GirisYap(ls){
-    const l = cookies.get('log');
+    const l = cookies.get('login');
     const d =cookies.get('durum');
     const [ll,setl]=useState("x");
     const [load,setload]=useState("0");
@@ -53,7 +54,13 @@ export default function GirisYap(ls){
             </Footer>
         </div>
     )
-    async function btngirisclick(){
+    function btngirisclick(){
+        var email = document.getElementById("txtemail").value;
+        var sifre =md5(document.getElementById("txtsifre").value);
+        GirisYapFS(email,sifre);
+    }
+
+    async function btngirisclick1(){
         setload("1");
         var e = document.getElementById("txtemail").value;
         var s =md5(document.getElementById("txtsifre").value);

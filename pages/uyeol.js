@@ -6,12 +6,12 @@ import { useEffect } from "react";
 import Head from 'next/head';
 import cookies from 'js-cookie';
 import Footer from '../components/footer';
-
+import { UyeOlFS } from '../utils/uyeolfs';
 
 var md5 = require('md5');
 var dn=moment().format("YYYY");
 export default function UyeOl() {
-    const l=cookies.get("log")||"0";
+    const l=cookies.get("login")||"0";
     useEffect(()=>{
         if(l=="1"){
             window.location.href="/";
@@ -125,7 +125,61 @@ Eğer beslenme ve diyetetik bölümünden değilseniz, ücretini ödemiş olsan�
             </div>
         </div>
     )
-    async function kayitc() {
+    function kayitc(){
+        let email = document.getElementById("txtemail").value;
+        let pass = document.getElementById("txtpass").value;
+        let rpass = document.getElementById("txtrpass").value;
+        let tel = document.getElementById("txttel").value;
+        let gs = document.getElementById("ddgs").value;
+        let gc =document.getElementById("txtgc").value;
+        let barkod = document.getElementById("txtbarkod").value;
+        let tc = document.getElementById("txttc").value;
+        let ad = document.getElementById("txtad").value;
+        let uni = document.getElementById("dduni").value;
+        let ono = document.getElementById("txtono").value;
+        let dtarihi=document.getElementById("txtdtarihi").value;
+        let sinif = document.getElementById("ddsinif").value;
+        let bitg=moment().format("DD");
+        let bita=moment().format("MM");
+        let bity=moment().add(1,"y").format("YYYY");
+        if(email=="" || email==null){
+            alert("Lütfen e-posta adresinizi giriniz.");
+        }else if (pass=="" || pass==null){
+            alert("Lütfen şifrenizi giriniz.");
+        }else if(rpass=="" || rpass==null){
+            alert("Lütfen şifrenizin tekrarını giriniz.");
+        }else if(tel=="" || tel==null){
+            alert("Lütfen telefon numaranızı giriniz.");
+        }else if(gs=="0" || gs==null){
+            alert("Lütfen güvenlik sorunuzu seçiniz.");
+        }else if(gc==""||gc==null){
+            alert("Lütfen güvenlik sorunuzun cevabını giriniz.");
+        }else if(barkod==""||barkod==null){
+            alert("Lütfen öğrenci belgenizin barkod numarasını giriniz.");
+        }else if(tc==""|| tc==null){
+            alert("Lütfen TC kimlik numaranızı giriniz.");
+        }else if(ad==""||ad==null){
+            alert("Lütfen adınızı ve soyadınızı giriniz.");
+        }else if(uni=="0" || uni==null){
+            alert("Lütfen üniversitenizi seçiniz.");
+        }else if(ono==""||ono==null){
+            alert("Lütfen öğrenci numaranızı giriniz.");
+        }else if(sinif=="0"||sinif==null){
+            alert("Lütfen sınıfınızı seçiniz.");
+        }else if(dtarihi=""||dtarihi==null){
+            alert("Lütfen doğum tarihinizi giriniz.");
+        }else {
+            if(pass!=rpass){
+                alert("Girdiğiniz şifreleriniz uyuşmamaktadır.")
+            }else{
+                let adsoyad=ad;
+                let paket="12";
+                let xsifre = pass;
+                UyeOlFS({email,xsifre,adsoyad,dtarihi,tel,tc,barkod,ono,paket,bitg,bita,bity,uni,sinif})
+            }
+        }
+    }
+    async function kayitc1() {
         let email = document.getElementById("txtemail").value;
         let pass = document.getElementById("txtpass").value;
         let rpass = document.getElementById("txtrpass").value;

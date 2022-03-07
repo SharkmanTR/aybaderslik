@@ -15,7 +15,7 @@ import Loading from '../../components/loading';
 import Head from 'next/head';
 
 var tema = cookies.get("tema"||"Default");
-const l = cookies.get("log")||"0";
+const l = cookies.get("login")||"0";
 let tc;
 if(tema=="Default"){
 tc="#dadada";

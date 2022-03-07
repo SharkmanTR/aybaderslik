@@ -15,10 +15,15 @@ import DiyetGonder from '../diyetgon';
 import { useState, useEffect } from 'react';
 import Loading from '../../components/loading';
 import Head from 'next/head';
+import { DiyetGonFS } from '../../utils/diyetgonfs';
+import { DefGonFS } from '../../utils/defgonfs';
+import { initializeApp } from "firebase/app";
+import {getFirestore,collection,query, where,limit, getDocs} from "firebase/firestore";
+
 
 var tema = cookies.get("tema"||"Default");
 var hh=cookies.get("hoca")||"0";
-const l = cookies.get("log")||"0";
+const l = cookies.get("login")||"0";
 let tc;
 if(tema=="Default"){
 tc="#dadada";
@@ -1657,6 +1662,208 @@ export default function NormalDiyet(){
         }
         setara3(ara3o);
         setload("1");
+        DiyetGonFS({
+            uni:cookies.get("uni"),
+            adsoyad:cookies.get("adsoyad"),
+            hoca:document.getElementById("hocalar").value,
+            dsut:document.getElementById("inputsut").value,
+            dyysut:document.getElementById("inputyysut").value,
+            dyssut:document.getElementById("inputyssut").value,
+            det:document.getElementById("inputet").value,
+            dekm:document.getElementById("inputekm").value,
+            dkbak:document.getElementById("inputkbak").value,
+            dseb:document.getElementById("inputsebze").value,
+            dmey:document.getElementById("inputmeyve").value,
+            dyag:document.getElementById("inputyag").value,
+            dytoh:document.getElementById("inputytoh").value,
+            ekcho:document.getElementById("inputekcho").value,
+            ekpro:document.getElementById("inputekpro").value,
+            ekyag:document.getElementById("inputekyag").value,
+            gcho:document.getElementById("tchog").innerText,
+            gpro:document.getElementById("tprog").innerText,
+            gyag:document.getElementById("tyagg").innerText,
+            topkcal:document.getElementById("tkcal").innerText,
+            kcho:document.getElementById("tchok").innerText,
+            kpro:document.getElementById("tprok").innerText,
+            kyag:document.getElementById("tyagk").innerText,
+            ycho:document.getElementById("yuzc").innerText,
+            ypro:document.getElementById("yuzp").innerText,
+            yyag:document.getElementById("yuzy").innerText,
+            dm:dm.toString(),
+            osabah:sabaho,
+            oara1:ara1o,
+            oogle:ogleo,
+            oara2:ara2o,
+            oaksam:aksamo,
+            oara3:ara3o
+        })
+        setload("0");
+        window.scrollTo(0,0);
+    }
+    async function btngonderc1(){
+        const sutd=document.getElementById("inputsut").value;
+        const yysutd=document.getElementById("inputyysut").value;
+        const yssutd=document.getElementById("inputyssut").value;
+        const etd=document.getElementById("inputet").value;
+        const ekmd=document.getElementById("inputekm").value;
+        const kbakd=document.getElementById("inputkbak").value;
+        const sebd=document.getElementById("inputsebze").value;
+        const meyd=document.getElementById("inputmeyve").value;
+        const yagd=document.getElementById("inputyag").value;
+        const ytohd=document.getElementById("inputytoh").value;
+        setsut(sutd);
+        setyysut(yysutd);
+        setyssut(yssutd);
+        setet(etd);
+        setekm(ekmd);
+        setkbak(kbakd);
+        setseb(sebd);
+        setmey(meyd);
+        setyag(yagd);
+        setytoh(ytohd);
+
+
+        const gramcho =document.getElementById("tchog").innerText;
+        const grompro=document.getElementById("tprog").innerText;
+        const gramyag=document.getElementById("tyagg").innerText;
+        const topcal=document.getElementById("tkcal").innerText;
+        const calcho=document.getElementById("tchok").innerText;
+        const calpro=document.getElementById("tprok").innerText;
+        const calyag=document.getElementById("tyagk").innerText;
+        const yuzcho=document.getElementById("yuzc").innerText;
+        const yuzpro=document.getElementById("yuzp").innerText;
+        const yuzyag=document.getElementById("yuzy").innerText;
+
+
+
+        const s1 = document.getElementById("s1").value;
+        const s2 = document.getElementById("s2").value;
+        const s3 = document.getElementById("s3").value;
+        const s4 = document.getElementById("s4").value;
+        const s5 = document.getElementById("s5").value;
+        const s6 = document.getElementById("s6").value;
+        const s7 = document.getElementById("s7").value;
+        const s8 = document.getElementById("s8").value;
+        const s9 = document.getElementById("s9").value;
+        const s10 = document.getElementById("s10").value;
+        const o1 = document.getElementById("o1").value;
+        const o2 = document.getElementById("o2").value;
+        const o3 = document.getElementById("o3").value;
+        const o4 = document.getElementById("o4").value;
+        const o5 = document.getElementById("o5").value;
+        const o6 = document.getElementById("o6").value;
+        const o7 = document.getElementById("o7").value;
+        const o8 = document.getElementById("o8").value;
+        const o9 = document.getElementById("o9").value;
+        const o10 = document.getElementById("o10").value;
+        const a1 = document.getElementById("a1").value;
+        const a2 = document.getElementById("a2").value;
+        const a3 = document.getElementById("a3").value;
+        const a4 = document.getElementById("a4").value;
+        const a5 = document.getElementById("a5").value;
+        const a6 = document.getElementById("a6").value;
+        const a7 = document.getElementById("a7").value;
+        const a8 = document.getElementById("a8").value;
+        const a9 = document.getElementById("a9").value;
+        const a10 = document.getElementById("a10").value;
+        const r1=document.getElementById("r1").value;
+        const r2=document.getElementById("r2").value;
+        const r3=document.getElementById("r3").value;
+        const r4=document.getElementById("r4").value;
+        const r5=document.getElementById("r5").value;
+        const r6=document.getElementById("r6").value;
+        const r7=document.getElementById("r7").value;
+        const r8=document.getElementById("r8").value;
+        const r9=document.getElementById("r9").value;
+        const r10=document.getElementById("r10").value;
+        const r11=document.getElementById("r11").value;
+        const r12=document.getElementById("r12").value;
+        const r13=document.getElementById("r13").value;
+        const r14=document.getElementById("r14").value;
+        const r15=document.getElementById("r15").value;
+        setddg("1");
+        let sabaho="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            sabaho=document.getElementById("inputs2sabah").value;
+        }else{
+            if(s1!=""){sabaho=s1+"<br>"};
+            if(s2!=""){sabaho=sabaho+s2+"<br>"};
+            if(s3!=""){sabaho=sabaho+s3+"<br>"};
+            if(s4!=""){sabaho=sabaho+s4+"<br>"};
+            if(s5!=""){sabaho=sabaho+s5+"<br>"};
+            if(s6!=""){sabaho=sabaho+s6+"<br>"};
+            if(s7!=""){sabaho=sabaho+s7+"<br>"};
+            if(s8!=""){sabaho=sabaho+s8+"<br>"};
+            if(s9!=""){sabaho=sabaho+s9+"<br>"};
+            if(s10!=""){sabaho=sabaho+s10};
+        }
+        setsabah(sabaho);
+        let ara1o="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            ara1o=document.getElementById("inputs2ara1").value;
+        }else{
+            if(r1!=""){ara1o=r1+"<br>"};
+            if(r2!=""){ara1o=ara1o+r2+"<br>"};
+            if(r3!=""){ara1o=ara1o+r3+"<br>"};
+            if(r4!=""){ara1o=ara1o+r4+"<br>"};
+            if(r5!=""){ara1o=ara1o+r5+"<br>"};
+        }
+        setara1(ara1o);
+        let ogleo=""
+        if(document.getElementById("divstil2").style.display=="block"){
+            ogleo=document.getElementById("inputs2ogle").value;
+        }else{
+            if(o1!=""){ogleo=o1+"<br>"};
+            if(o2!=""){ogleo=ogleo+o2+"<br>"};
+            if(o3!=""){ogleo=ogleo+o3+"<br>"};
+            if(o4!=""){ogleo=ogleo+o4+"<br>"};
+            if(o5!=""){ogleo=ogleo+o5+"<br>"};
+            if(o6!=""){ogleo=ogleo+o6+"<br>"};
+            if(o7!=""){ogleo=ogleo+o7+"<br>"};
+            if(o8!=""){ogleo=ogleo+o8+"<br>"};
+            if(o9!=""){ogleo=ogleo+o9+"<br>"};
+            if(o10!=""){ogleo=ogleo+o10};
+        }
+        setogle(ogleo);
+        let ara2o="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            ara2o=document.getElementById("inputs2ara2").value;
+        }else{
+            if(r6!=""){ara2o=r6+"<br>"};
+            if(r7!=""){ara2o=ara2o+r7+"<br>"};
+            if(r8!=""){ara2o=ara2o+r8+"<br>"};
+            if(r9!=""){ara2o=ara2o+r9+"<br>"};
+            if(r10!=""){ara2o=ara2o+r10+"<br>"};
+        }
+        setara2(ara2o);
+        let aksamo=""
+        if(document.getElementById("divstil2").style.display=="block"){
+            aksamo=document.getElementById("inputs2aksam").value;
+        }else{
+            if(a1!=""){aksamo=a1+"<br>"};
+            if(a2!=""){aksamo=aksamo+a2+"<br>"};
+            if(a3!=""){aksamo=aksamo+a3+"<br>"};
+            if(a4!=""){aksamo=aksamo+a4+"<br>"};
+            if(a5!=""){aksamo=aksamo+a5+"<br>"};
+            if(a6!=""){aksamo=aksamo+a6+"<br>"};
+            if(a7!=""){aksamo=aksamo+a7+"<br>"};
+            if(a8!=""){aksamo=aksamo+a8+"<br>"};
+            if(a9!=""){aksamo=aksamo+a9+"<br>"};
+            if(a10!=""){aksamo=aksamo+a10};
+        }
+        setaksam(aksamo);
+        let ara3o="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            ara3o=document.getElementById("inputs2ara3").value;
+        }else{
+            if(r11!=""){ara3o=r11+"<br>"};
+            if(r12!=""){ara3o=ara3o+r12+"<br>"};
+            if(r13!=""){ara3o=ara3o+r13+"<br>"};
+            if(r14!=""){ara3o=ara3o+r14+"<br>"};
+            if(r15!=""){ara3o=ara3o+r15+"<br>"};
+        }
+        setara3(ara3o);
+        setload("1");
         const gon = await fetch('../api/diyetgon',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
@@ -1702,8 +1909,215 @@ export default function NormalDiyet(){
         alert(yan["id"]+" numaralı diyetiniz başarıyla gönderilmiştir.")
         window.scrollTo(0,0);
     }
-
     async function btndefgonc(req,res){
+        const sutd=document.getElementById("inputsut").value;
+        const yysutd=document.getElementById("inputyysut").value;
+        const yssutd=document.getElementById("inputyssut").value;
+        const etd=document.getElementById("inputet").value;
+        const ekmd=document.getElementById("inputekm").value;
+        const kbakd=document.getElementById("inputkbak").value;
+        const sebd=document.getElementById("inputsebze").value;
+        const meyd=document.getElementById("inputmeyve").value;
+        const yagd=document.getElementById("inputyag").value;
+        const ytohd=document.getElementById("inputytoh").value;
+        setsut(sutd);
+        setyysut(yysutd);
+        setyssut(yssutd);
+        setet(etd);
+        setekm(ekmd);
+        setkbak(kbakd);
+        setseb(sebd);
+        setmey(meyd);
+        setyag(yagd);
+        setytoh(ytohd);
+
+
+        const gramcho =document.getElementById("tchog").innerText;
+        const grompro=document.getElementById("tprog").innerText;
+        const gramyag=document.getElementById("tyagg").innerText;
+        const topcal=document.getElementById("tkcal").innerText;
+        const calcho=document.getElementById("tchok").innerText;
+        const calpro=document.getElementById("tprok").innerText;
+        const calyag=document.getElementById("tyagk").innerText;
+        const yuzcho=document.getElementById("yuzc").innerText;
+        const yuzpro=document.getElementById("yuzp").innerText;
+        const yuzyag=document.getElementById("yuzy").innerText;
+
+
+
+        const s1 = document.getElementById("s1").value;
+        const s2 = document.getElementById("s2").value;
+        const s3 = document.getElementById("s3").value;
+        const s4 = document.getElementById("s4").value;
+        const s5 = document.getElementById("s5").value;
+        const s6 = document.getElementById("s6").value;
+        const s7 = document.getElementById("s7").value;
+        const s8 = document.getElementById("s8").value;
+        const s9 = document.getElementById("s9").value;
+        const s10 = document.getElementById("s10").value;
+        const o1 = document.getElementById("o1").value;
+        const o2 = document.getElementById("o2").value;
+        const o3 = document.getElementById("o3").value;
+        const o4 = document.getElementById("o4").value;
+        const o5 = document.getElementById("o5").value;
+        const o6 = document.getElementById("o6").value;
+        const o7 = document.getElementById("o7").value;
+        const o8 = document.getElementById("o8").value;
+        const o9 = document.getElementById("o9").value;
+        const o10 = document.getElementById("o10").value;
+        const a1 = document.getElementById("a1").value;
+        const a2 = document.getElementById("a2").value;
+        const a3 = document.getElementById("a3").value;
+        const a4 = document.getElementById("a4").value;
+        const a5 = document.getElementById("a5").value;
+        const a6 = document.getElementById("a6").value;
+        const a7 = document.getElementById("a7").value;
+        const a8 = document.getElementById("a8").value;
+        const a9 = document.getElementById("a9").value;
+        const a10 = document.getElementById("a10").value;
+        const r1=document.getElementById("r1").value;
+        const r2=document.getElementById("r2").value;
+        const r3=document.getElementById("r3").value;
+        const r4=document.getElementById("r4").value;
+        const r5=document.getElementById("r5").value;
+        const r6=document.getElementById("r6").value;
+        const r7=document.getElementById("r7").value;
+        const r8=document.getElementById("r8").value;
+        const r9=document.getElementById("r9").value;
+        const r10=document.getElementById("r10").value;
+        const r11=document.getElementById("r11").value;
+        const r12=document.getElementById("r12").value;
+        const r13=document.getElementById("r13").value;
+        const r14=document.getElementById("r14").value;
+        const r15=document.getElementById("r15").value;
+        setddg("1");
+        let sabaho="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            sabaho=document.getElementById("inputs2sabah").value;
+        }else{
+            if(s1!=""){sabaho=s1+"<br>"};
+            if(s2!=""){sabaho=sabaho+s2+"<br>"};
+            if(s3!=""){sabaho=sabaho+s3+"<br>"};
+            if(s4!=""){sabaho=sabaho+s4+"<br>"};
+            if(s5!=""){sabaho=sabaho+s5+"<br>"};
+            if(s6!=""){sabaho=sabaho+s6+"<br>"};
+            if(s7!=""){sabaho=sabaho+s7+"<br>"};
+            if(s8!=""){sabaho=sabaho+s8+"<br>"};
+            if(s9!=""){sabaho=sabaho+s9+"<br>"};
+            if(s10!=""){sabaho=sabaho+s10};
+        }
+        setsabah(sabaho);
+        let ara1o="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            ara1o=document.getElementById("inputs2ara1").value;
+        }else{
+            if(r1!=""){ara1o=r1+"<br>"};
+            if(r2!=""){ara1o=ara1o+r2+"<br>"};
+            if(r3!=""){ara1o=ara1o+r3+"<br>"};
+            if(r4!=""){ara1o=ara1o+r4+"<br>"};
+            if(r5!=""){ara1o=ara1o+r5+"<br>"};
+        }
+        setara1(ara1o);
+        let ogleo=""
+        if(document.getElementById("divstil2").style.display=="block"){
+            ogleo=document.getElementById("inputs2ogle").value;
+        }else{
+            if(o1!=""){ogleo=o1+"<br>"};
+            if(o2!=""){ogleo=ogleo+o2+"<br>"};
+            if(o3!=""){ogleo=ogleo+o3+"<br>"};
+            if(o4!=""){ogleo=ogleo+o4+"<br>"};
+            if(o5!=""){ogleo=ogleo+o5+"<br>"};
+            if(o6!=""){ogleo=ogleo+o6+"<br>"};
+            if(o7!=""){ogleo=ogleo+o7+"<br>"};
+            if(o8!=""){ogleo=ogleo+o8+"<br>"};
+            if(o9!=""){ogleo=ogleo+o9+"<br>"};
+            if(o10!=""){ogleo=ogleo+o10};
+        }
+        setogle(ogleo);
+        let ara2o="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            ara2o=document.getElementById("inputs2ara2").value;
+        }else{
+            if(r6!=""){ara2o=r6+"<br>"};
+            if(r7!=""){ara2o=ara2o+r7+"<br>"};
+            if(r8!=""){ara2o=ara2o+r8+"<br>"};
+            if(r9!=""){ara2o=ara2o+r9+"<br>"};
+            if(r10!=""){ara2o=ara2o+r10+"<br>"};
+        }
+        setara2(ara2o);
+        let aksamo=""
+        if(document.getElementById("divstil2").style.display=="block"){
+            aksamo=document.getElementById("inputs2aksam").value;
+        }else{
+            if(a1!=""){aksamo=a1+"<br>"};
+            if(a2!=""){aksamo=aksamo+a2+"<br>"};
+            if(a3!=""){aksamo=aksamo+a3+"<br>"};
+            if(a4!=""){aksamo=aksamo+a4+"<br>"};
+            if(a5!=""){aksamo=aksamo+a5+"<br>"};
+            if(a6!=""){aksamo=aksamo+a6+"<br>"};
+            if(a7!=""){aksamo=aksamo+a7+"<br>"};
+            if(a8!=""){aksamo=aksamo+a8+"<br>"};
+            if(a9!=""){aksamo=aksamo+a9+"<br>"};
+            if(a10!=""){aksamo=aksamo+a10};
+        }
+        setaksam(aksamo);
+        let ara3o="";
+        if(document.getElementById("divstil2").style.display=="block"){
+            ara3o=document.getElementById("inputs2ara3").value;
+        }else{
+            if(r11!=""){ara3o=r11+"<br>"};
+            if(r12!=""){ara3o=ara3o+r12+"<br>"};
+            if(r13!=""){ara3o=ara3o+r13+"<br>"};
+            if(r14!=""){ara3o=ara3o+r14+"<br>"};
+            if(r15!=""){ara3o=ara3o+r15+"<br>"};
+        }
+        setara3(ara3o);
+        setload("1");
+        DefGonFS({
+            ono:cookies.get("ono"),
+            uni:cookies.get("uni"),
+            adsoyad:cookies.get("adsoyad"),
+            dsut:document.getElementById("inputsut").value,
+            dyysut:document.getElementById("inputyysut").value,
+            dyssut:document.getElementById("inputyssut").value,
+            det:document.getElementById("inputet").value,
+            dekm:document.getElementById("inputekm").value,
+            dkbak:document.getElementById("inputkbak").value,
+            dseb:document.getElementById("inputsebze").value,
+            dmey:document.getElementById("inputmeyve").value,
+            dyag:document.getElementById("inputyag").value,
+            dytoh:document.getElementById("inputytoh").value,
+            ekcho:document.getElementById("inputekcho").value,
+            ekpro:document.getElementById("inputekpro").value,
+            ekyag:document.getElementById("inputekyag").value,
+            gcho:document.getElementById("tchog").innerText,
+            gpro:document.getElementById("tprog").innerText,
+            gyag:document.getElementById("tyagg").innerText,
+            topkcal:document.getElementById("tkcal").innerText,
+            kcho:document.getElementById("tchok").innerText,
+            kpro:document.getElementById("tprok").innerText,
+            kyag:document.getElementById("tyagk").innerText,
+            ycho:document.getElementById("yuzc").innerText,
+            ypro:document.getElementById("yuzp").innerText,
+            yyag:document.getElementById("yuzy").innerText,
+            osabah:sabaho,
+            oara1:ara1o,
+            oogle:ogleo,
+            oara2:ara2o,
+            oaksam:aksamo,
+            oara3:ara3o,
+            dm:dm.toString(),
+            vakaadi:document.getElementById("inputva").value,
+            hastaliklar:document.getElementById("inputhast").value,
+            ilaclar:document.getElementById("inputhast").value,
+            bulgular:document.getElementById("inputbul").value,
+            servis:document.getElementById("inputser").value,
+            info:document.getElementById("inputinfo2").value
+        })
+        setload("0");
+        window.scrollTo(0,0);
+    }
+    async function btndefgonc1(req,res){
         const sutd=document.getElementById("inputsut").value;
         const yysutd=document.getElementById("inputyysut").value;
         const yssutd=document.getElementById("inputyssut").value;
@@ -3354,6 +3768,36 @@ export default function NormalDiyet(){
         fmetre();
     }
     async function hocaget(){
+        setload("1");
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFD4w7KuEv3ym_Y8Hlij1PDzNL0hqJWzc",
+            authDomain: "aybaderslikdb.firebaseapp.com",
+            projectId: "aybaderslikdb",
+            storageBucket: "aybaderslikdb.appspot.com",
+            messagingSenderId: "187871617678",
+            appId: "1:187871617678:web:13ca7665558e15f4875fdf",
+            measurementId: "G-QEVZ3W3G2Q"
+        };
+        
+        const app=initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const userRef = collection(db,"users");
+        const q = query(userRef,where("hoca","==","1"))
+        const uss = await getDocs(q);
+        const dat = uss.docs.map(doc=>doc.data());
+        const hc = uss.docs.map((doc=>{
+            return({
+                "id":doc.id,
+                "adsoyad":doc.data().adsoyad
+            })
+        }))
+        console.log(hc);
+        sethocalar(hc);
+        setht(true);
+        setload("0");
+    }
+    async function hocaget1(){
         setload("1");
         const hoc=await fetch("../api/hocaget",{
             method:'POST',

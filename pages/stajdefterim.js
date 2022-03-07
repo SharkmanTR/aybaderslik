@@ -14,6 +14,8 @@ import stylesDay from '../components/Day/diyetler.module.css';
 import { useEffect, useState } from 'react';
 import Loading from '../components/loading';
 import Head from 'next/head';
+import { initializeApp } from "firebase/app";
+import {getFirestore,collection,query, where,limit, getDocs, doc} from "firebase/firestore";
 
 var tema = cookies.get("tema")||"Default";
 let tc;
@@ -44,7 +46,7 @@ if(tema=="Default"){
 
 export default function StajDefterim({dyt2}){
     const [t,sett]=useState(styles);
-    const l = cookies.get("log")||"0";
+    const l = cookies.get("login")||"0";
     const [dyt,setdyt]=useState([]);
     const [tr,settry]=useState(false);
     const [load,setload]=useState("0");
@@ -97,7 +99,7 @@ export default function StajDefterim({dyt2}){
             {hoca=="1"&&
                 <div className={t.src}>
                     <input id='inputorno' className={t.srcinput} placeholder='Öğrenci Numarası' onChange={ornoc}></input>
-                    <button className={t.srcbtn} onClick={dytget}>Staj Defterini Getir</button>
+                    <button className={t.srcbtn} onClick={dytsrc}>Staj Defterini Getir</button>
                 </div>
             }
 
@@ -321,6 +323,133 @@ export default function StajDefterim({dyt2}){
         </div>
     )
     async function dytget(){
+        setload("1");
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFD4w7KuEv3ym_Y8Hlij1PDzNL0hqJWzc",
+            authDomain: "aybaderslikdb.firebaseapp.com",
+            projectId: "aybaderslikdb",
+            storageBucket: "aybaderslikdb.appspot.com",
+            messagingSenderId: "187871617678",
+            appId: "1:187871617678:web:13ca7665558e15f4875fdf",
+            measurementId: "G-QEVZ3W3G2Q"
+        };
+        const app=initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        if(hoca=="1"){
+            const defRef = collection(db,"defterler");
+            const q = query(defRef,where("uni","==",cookies.get("uni")));
+            const dss = await getDocs(q);
+            const dat = dss.docs.map((doc=>{
+                return(
+                    {
+                        "id":doc.id,
+                        "ono":doc.data().ono,
+                        "servis":doc.data().servis,
+                        "gun":doc.data().gun,
+                        "ay":doc.data().ay,
+                        "yil":doc.data().yil,
+                        "hastaliklar":doc.data().hastaliklar,
+                        "vakaadi":doc.data().vakaadi,
+                        "bulgular":doc.data().bulgular,
+                        "ilaclar":doc.data().ilaclar,
+                        "dsut":doc.data().dsut,
+                        "dyysut":doc.data().dyysut,
+                        "dyssut":doc.data().dyssut,
+                        "dekm":doc.data().dekm,
+                        "dkbak":doc.data().dkbak,
+                        "dseb":doc.data().dekm,
+                        "dyag":doc.data().dyag,
+                        "dytoh":doc.data().dytoh,
+                        "ekcho":doc.data().ekcho,
+                        "ekpro":doc.data().ekpro,
+                        "ekyag":doc.data().ekyag,
+                        "topkal":doc.data().topkal,
+                        "kcho":doc.data().kcho,
+                        "kpro":doc.data().kpro,
+                        "kyag":doc.data().kyag,
+                        "ycho":doc.data().ycho,
+                        "ypro":doc.data().ypro,
+                        "yyag":doc.data().yyag,
+                        "gcho":doc.data().gcho,
+                        "gpro":doc.data().gpro,
+                        "gyag":doc.data().gyag,
+                        "osabah":doc.data().osabah,
+                        "oara1":doc.data().oara1,
+                        "oogle":doc.data().oogle,
+                        "oara2":doc.data().oara2,
+                        "oaksam":doc.data().oaksam,
+                        "oara3":doc.data().oara3,
+                    }
+                )
+            }))
+            setdyt(dat);
+        }else{
+
+        }
+        settry(true);
+        setload("0");
+    }
+    async function dytsrc(){
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFD4w7KuEv3ym_Y8Hlij1PDzNL0hqJWzc",
+            authDomain: "aybaderslikdb.firebaseapp.com",
+            projectId: "aybaderslikdb",
+            storageBucket: "aybaderslikdb.appspot.com",
+            messagingSenderId: "187871617678",
+            appId: "1:187871617678:web:13ca7665558e15f4875fdf",
+            measurementId: "G-QEVZ3W3G2Q"
+        };
+        const app=initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const defRef = collection(db,"defterler");
+        const q = query(defRef,where("uni","==",cookies.get("uni")), where("ono","==",orno));
+        const dss = await getDocs(q);
+        const dat = dss.docs.map((doc=>{
+            return(
+                {
+                    "id":doc.id,
+                    "ono":doc.data().ono,
+                    "servis":doc.data().servis,
+                    "gun":doc.data().gun,
+                    "ay":doc.data().ay,
+                    "yil":doc.data().yil,
+                    "hastaliklar":doc.data().hastaliklar,
+                    "vakaadi":doc.data().vakaadi,
+                    "bulgular":doc.data().bulgular,
+                    "ilaclar":doc.data().ilaclar,
+                    "dsut":doc.data().dsut,
+                    "dyysut":doc.data().dyysut,
+                    "dyssut":doc.data().dyssut,
+                    "dekm":doc.data().dekm,
+                    "dkbak":doc.data().dkbak,
+                    "dseb":doc.data().dekm,
+                    "dyag":doc.data().dyag,
+                    "dytoh":doc.data().dytoh,
+                    "ekcho":doc.data().ekcho,
+                    "ekpro":doc.data().ekpro,
+                    "ekyag":doc.data().ekyag,
+                    "topkal":doc.data().topkal,
+                    "kcho":doc.data().kcho,
+                    "kpro":doc.data().kpro,
+                    "kyag":doc.data().kyag,
+                    "ycho":doc.data().ycho,
+                    "ypro":doc.data().ypro,
+                    "yyag":doc.data().yyag,
+                    "gcho":doc.data().gcho,
+                    "gpro":doc.data().gpro,
+                    "gyag":doc.data().gyag,
+                    "osabah":doc.data().osabah,
+                    "oara1":doc.data().oara1,
+                    "oogle":doc.data().oogle,
+                    "oara2":doc.data().oara2,
+                    "oaksam":doc.data().oaksam,
+                    "oara3":doc.data().oara3,
+                }
+            )
+        }))
+        setdyt(dat);
+    }
+    async function dytget1(){
         setload("1");
         if(hoca=="1"){
             const def = await fetch('./api/defget',{

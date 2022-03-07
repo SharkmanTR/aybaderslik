@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/api/uyeolfs.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -16,7 +16,7 @@ import Head from 'next/head';
 
 var tema = cookies.get("tema")||"Default";
 let tc;
-const l=cookies.get("log")||"0";
+const l=cookies.get("login")||"0";
 if(tema=="Default"){
     tc="#dadada";
 }else if (tema=="DefaultDark"){

@@ -4,7 +4,7 @@ import UstMenu2 from '../components/ustmenu2';
 import cookies from 'js-cookie';
 import Ingilizce from '../components/ingilizce';
 import { useEffect, useState } from 'react';
-
+import { UyeOlFS } from '../utils/uyeolfs';
 
 
 var tema = cookies.get("tema"||"Default");
@@ -33,7 +33,7 @@ if(tema=="Default"){
   tc="#dadada";
 }
 export default function Home() {
-  const l = cookies.get("log")||"0";
+  const l = cookies.get("login")||"0";
   const d= cookies.get("durum");
   useEffect(()=>{
     if(l=="0"){
@@ -56,7 +56,6 @@ export default function Home() {
       <div>
         <UstMenu pref={""}>
         </UstMenu>
-        
         <div style={{width:"100%",marginTop:"60px"}}>
           {d=="2"&&
           <div>
@@ -90,6 +89,5 @@ export default function Home() {
   function dergic() {
     window.location.href="/DietsTalks";
   }
-
 }
 

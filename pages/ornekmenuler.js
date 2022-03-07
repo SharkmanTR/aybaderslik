@@ -12,6 +12,8 @@ import stylesNight from '../components/Night/diyetler.module.css';
 import stylesDay from '../components/Day/diyetler.module.css';
 import {PrismaClient} from '@prisma/client';
 import { useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import {getFirestore,collection,query, where,limit, getDocs, doc} from "firebase/firestore";
 import Head from 'next/head';
 
 
@@ -41,9 +43,16 @@ else if(tema=="DarkSlateBlue"){
 }else {
     tc="#dadada";
   }
-export default function OrnekMenuler({dyt}){
+export default function OrnekMenuler(){
     const [t,sett]=useState(styles);
-    const l= cookies.get("log")||"0";
+    const l= cookies.get("login")||"0";
+    const [dyt,setdyt]=useState([]);
+    const [get,setget]=useState(false);
+    useEffect(()=>{
+        if(!get){
+            diyetget();
+        }
+    },[])
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -291,22 +300,71 @@ export default function OrnekMenuler({dyt}){
             ))}
         </div>
     )
-}
-export async function getServerSideProps(){
-    const prisma = new PrismaClient();
-    const dyt = await prisma.aybaDiyetler.findMany({
-        orderBy:{id:'desc'},
-        where:{
-            uni:cookies.get("uni"||""),
-            fav:"1"
-        }
-    });
-    return{
-        props:{
-            dyt
-        }
+    async function diyetget(){
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFD4w7KuEv3ym_Y8Hlij1PDzNL0hqJWzc",
+            authDomain: "aybaderslikdb.firebaseapp.com",
+            projectId: "aybaderslikdb",
+            storageBucket: "aybaderslikdb.appspot.com",
+            messagingSenderId: "187871617678",
+            appId: "1:187871617678:web:13ca7665558e15f4875fdf",
+            measurementId: "G-QEVZ3W3G2Q"
+        };
+        const app=initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const diyRef=collection(db,"ornekdiyetler");
+        const q =query(diyRef,where("uni","==",cookies.get("uni")));
+        const dss = await getDocs(q);
+        const dat = dss.docs.map((doc)=>{
+            return(
+                {
+                    id:doc.id,
+                    adsoyad:doc.data().adsoyad,
+                    info:doc.data().info,
+                    gun:doc.data().gun,
+                    ay:doc.data().ay,
+                    yil:doc.data().yil,
+                    topkcal:doc.data().topkcal,
+                    ycho:doc.data().ycho,
+                    ypro:doc.data().ypro,
+                    yyag:doc.data().yyag,
+                    dsut:doc.data().dsut,
+                    dyysut:doc.data().dyysut,
+                    dyssut:doc.data().dyssut,
+                    det:doc.data().det,
+                    dekm:doc.data().dekm,
+                    dkbak:doc.data().dkbak,
+                    dseb:doc.data().dseb,
+                    dmey:doc.data().dmey,
+                    dyag:doc.data().dyag,
+                    dytoh:doc.data().dytoh,
+                    ekcho:doc.data().ekcho,
+                    ekpro:doc.data().ekpro,
+                    ekyag:doc.data().ekyag,
+                    kcho:doc.data().kcho,
+                    kpro:doc.data().kpro,
+                    kyag:doc.data().kyag,
+                    ycho:doc.data().ycho,
+                    ypro:doc.data().ypro,
+                    yyag:doc.data().yyag,
+                    gcho:doc.data().gcho,
+                    gpro:doc.data().gpro,
+                    gyag:doc.data().gyag,
+                    osabah:doc.data().osabah,
+                    oara1:doc.data().oara1,
+                    oogle:doc.data().oogle,
+                    oara2:doc.data().oara2,
+                    oaksam:doc.data().oaksam,
+                    oara3:doc.data().oara3
+                }
+            )
+        })
+        setdyt(dat);
+        setget(true);
     }
 }
+
 function divclick(){
     var i =event.srcElement.id;
     if(document.getElementById('divdet'+i).style.display=="none"){

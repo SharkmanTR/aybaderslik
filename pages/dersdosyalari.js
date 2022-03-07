@@ -44,7 +44,7 @@ if(tema=="Default"){
 export default function DersDosyalari(){
     const s= cookies.get("sinif");
     const u = cookies.get("uni");
-    const l=cookies.get("log")||"0";
+    const l=cookies.get("login")||"0";
     const [t,sett]=useState(styles);
     const [konular4,setkonu4]=useState([]);
     const [konular3,setkonu3]=useState([]);
@@ -200,7 +200,22 @@ export default function DersDosyalari(){
             </div>
         </div>
     )
-    async function dosyaget() {
+    async function dosyaget(){
+        setload("1");
+        const req = await fetch('./api/dersdosyalari',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(
+                {uni:cookies.get("uni")}
+            )
+        })
+        const res= await req.json();
+        setkonu(res);
+        console.log(res);
+        settry(true);
+        setload("0")
+    }
+    async function dosyaget1() {
         setload("1");
         const req4 = await fetch('./api/dersdos',{
             method:'POST',

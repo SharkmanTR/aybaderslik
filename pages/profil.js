@@ -42,7 +42,7 @@ if(tema=="Default"){
 
 export default function Profil({res}) {
     const[t,sett]=useState(styles);
-    const l=cookies.get("log")||"0";
+    const l=cookies.get("login")||"0";
     const [ad,setad]=useState(cookies.get("adsoyad"));
     const [no,setno]=useState(cookies.get("ono"));
     const [snf,setsnf]=useState(cookies.get("sinif"));

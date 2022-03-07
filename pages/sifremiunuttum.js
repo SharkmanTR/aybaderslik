@@ -11,7 +11,7 @@ export default function SifremiUnuttum() {
     const [lvl,setlvl]=useState("1");
     const [load,setload]=useState("0");
     const [usid,setuid]=useState(0);
-    const l = cookies.get('log');
+    const l = cookies.get('login');
     useEffect(()=>{
         if(l=="x"){
 

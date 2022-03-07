@@ -122,6 +122,6 @@ export default function Ingilizce(){
                 aset(i["a"]);
                 ocset(i["oc"]);
             }
-        })
-    }
+        });
+    };
 };

@@ -15,6 +15,9 @@ import moment from 'moment';
 import { useEffect, useState} from "react";
 import Loading from "../components/loading";
 import Head from 'next/head';
+import { initializeApp } from "firebase/app";
+import {getFirestore,collection,query, where,limit, getDocs, doc} from "firebase/firestore";
+import { DiyetFavFS } from "../utils/diyetfavfs";
 
 var tema = cookies.get("tema"||"Default");
 let tc;
@@ -45,8 +48,9 @@ export default function Diyetler(){
 
     const [t,sett]=useState(styles);
     const [dyt,dddset]=useState([]);
-    const l = cookies.get("log")||"0";
+    const l = cookies.get("login")||"0";
     const [load,setload]=useState("0");
+    const [dytget,setdytget]=useState(false);
     useEffect(()=>{
         if(tema=="Default"){
             sett(styles);
@@ -72,7 +76,9 @@ export default function Diyetler(){
         if(l=="0"){
             window.location.href="/girisyap"
         }
-        dosget();
+        if(!dytget){
+            dosget();
+        }
     })
     return(
         <div className={t.main}>
@@ -326,7 +332,67 @@ export default function Diyetler(){
             ))}
         </div>
     );
-    async function dosget() {
+    async function dosget(){
+        setload("1")
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFD4w7KuEv3ym_Y8Hlij1PDzNL0hqJWzc",
+            authDomain: "aybaderslikdb.firebaseapp.com",
+            projectId: "aybaderslikdb",
+            storageBucket: "aybaderslikdb.appspot.com",
+            messagingSenderId: "187871617678",
+            appId: "1:187871617678:web:13ca7665558e15f4875fdf",
+            measurementId: "G-QEVZ3W3G2Q"
+        };
+        const app=initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const diyRef=collection(db,"diyetler");
+        const q =query(diyRef,where("uni","==",cookies.get("uni")),where("hoca","==",cookies.get("id")),where("gun","==",moment().format('DD')),where("ay","==",moment().format("MM")),where("yil","==",moment().format("YYYY")))
+        const dss = await getDocs(q);
+        const dat =dss.docs.map((doc)=>{
+            return(
+                {
+                    "id":doc.id,
+                    "fav":doc.data().fav,
+                    "adsoyad":doc.data().adsoyad,
+                    "topkcal":doc.data().topkcal,
+                    "ycho":doc.data().ycho,
+                    "ypro":doc.data().ypro,
+                    "yyag":doc.data().yyag,
+                    "metre":doc.data().metre,
+                    "dsut":doc.data().dsut,
+                    "dyysut":doc.data().dyysut,
+                    "dyssut":doc.data().dyssut,
+                    "det":doc.data().det,
+                    "dekm":doc.data().dekm,
+                    "dkbak":doc.data().dkbak,
+                    "dseb":doc.data().dseb,
+                    "dmey":doc.data().dmey,
+                    "dyag":doc.data().dyag,
+                    "dytoh":doc.data().dytoh,
+                    "ekcho":doc.data().ekcho,
+                    "ekpro":doc.data().ekpro,
+                    "ekyag":doc.data().ekyag,
+                    "kcho":doc.data().kcho,
+                    "kpro":doc.data().kpro,
+                    "kyag":doc.data().kyag,
+                    "ycho":doc.data().ycho,
+                    "ypro":doc.data().ypro,
+                    "yyag":doc.data().yyag,
+                    "osabah":doc.data().osabah,
+                    "oara1":doc.data().oara1,
+                    "oogle":doc.data().oogle,
+                    "oara2":doc.data().oara2,
+                    "oaksam":doc.data().oaksam,
+                    "oara3":doc.data().oara3
+                }
+            )
+        });
+        console.log(dat);
+        setdytget(true);
+        dddset(dat);
+        setload("0");
+    }
+    async function dosget1() {
         const dos = await fetch('./api/diyetler',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
@@ -343,6 +409,15 @@ export default function Diyetler(){
     
     }
     async function btnfav(){
+        var id = event.srcElement.value;
+        var info = document.getElementById("inputfavimg"+id).value;
+        setload("1");
+        DiyetFavFS({id,info})
+        document.getElementById("inputfavimg"+id).style.display="none";
+        document.getElementById("btnfavimg"+id).style.display="none";
+        setload("0")
+    }
+    async function btnfav1(){
         setload("1");
         var i = event.srcElement.value;
         const res = fetch('./api/diyetfav',{
